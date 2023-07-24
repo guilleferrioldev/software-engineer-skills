@@ -1,0 +1,87 @@
+Graphs are a non-linear data structure, in which the problem is represented as a network by connecting a set of
+nodes with edges, like a telephone network or social network. For example, in a graph, nodes can represent
+different cities while the links between them represent edges. Graphs are one of the most important data structures;
+they are used to solve many computing problems, especially when the problem is represented in the form of objects 
+and their connection, e.g. to find out the shortest path from one city to another city. Graphs are useful data 
+structures for solving real-world problems in which the problem can be represented as a network-like structure.
+
+A graph is a set of a finite number of vertices (also known as nodes) and edges, in which the edges are the links
+between vertices, and each edge in a graph joins two distinct nodes. Moreover, a graph is a formal mathematical
+representation of a network, i.e. a graph G is an ordered pair of a set V of vertices and a set E of edges, given
+as G = (V, E) in formal mathematical notation.
+
+Let’s discuss some of the important definitions of a graph:
+- 1. Node or vertex: A point or node in a graph is called a vertex.
+
+- 2. Edge: This is a connection between two vertices.
+
+- 3. Loop: When an edge from a node is returned to itself , that edge forms a loop
+
+- 4. Degree of a vertex/node: The total number of edges that are incidental on a given vertex is called the degree of that vertex.
+
+- 5. Adjacency: This refers to the connection(s) between any two nodes; thus, if there is a connection between any two
+vertices or nodes, then they are said to be adjacent to each other.
+
+- 6. Path: A sequence of vertices and edges between any two nodes represents a path.
+
+- 7. Leaf vertex (also called pendant vertex): A vertex or node is called a leaf vertex or pendant vertex if it has exactly one degree.
+
+
+
+-> Directed and undirected graphs
+If the connecting edges in a graph are undirected, then the graph is called
+an undirected graph, and if the connecting edges in a graph are directed, then it is called a directed graph.
+An undirected graph simply represents edges as lines between the nodes. There is no additional information about
+the relationship between the nodes, other than the fact that they are connected.
+
+In a directed graph, the edges provide information on the direction of connection between any two nodes in a graph. 
+The directed edges are drawn as lines with arrows, which will point in whichever direction the edge connects the two nodes.
+
+The arrow of an edge determines the flow of direction. 
+- 1. Indegree: The total number of edges that come into a vertex in the graph is called the indegree of that vertex.
+
+- 2. Outdegree: The total number of edges that go out from a vertex in the graph is called the outdegree of that vertex.
+
+- 3. Isolated vertex: A node or vertex is called an isolated vertex when it has a degree of zero.
+
+- 4. Source vertex: A vertex is called a source vertex if it has an indegree of zero.
+
+- 5. Sink vertex: A vertex is a sink vertex if it has an outdegree of zero.
+
+
+
+-> Directed axyclic graphs
+A directed acyclic graph (DAG) is a directed graph with no cycles; in a DAG all the edges are directed from one node
+to another node so that the sequence of edges never forms a closed loop. A cycle in a graph is formed when the starting
+node of the first edge is equal to the ending node of the last edge in a sequence.
+
+So, in a directed acyclic graph, if we start on any path from a given node, we never find a path that ends on the same node.
+ A DAG has many applications, such as in job scheduling, citation graphs, and data compression
+
+
+-> Weighted Graphs
+A weighted graph is a graph that has a numeric weight associated with the edges in the graph. A weighted graph can be either
+a directed or an undirected graph. The numeric weight can be used to indicate distance or cost, depending on the purpose of the graph
+
+
+-> Bipartite graphs
+A bipartite graph (also known as a bigraph) is a special graph in which all the nodes of the graph can be divided into two
+ sets in such a way that edges connect the nodes from one set to the nodes of another set. 
+
+Bipartite graphs are useful when we need to model a relationship between two different classes of objects, for example, a
+graph of applicants and jobs, in which we may need to model the rela tionship between these two different groups; another 
+example may be a bipartite graph of football players and clubs in which we may need to model if a player has played for a
+particular club or not.
+
+
+
+-> Graph representation
+Graphs can be represented with two methods, i.e. (1) an adjacency list, and (2) an adjacency matrix.
+
+Either of these two representations can be used; however, our choice depends on the application where we will be using the
+graph representation. An adjacency list is preferable when we expect that the graph is going to be sparse and we will have
+a smaller number of edges; e.g. if a graph of 200 nodes has say 100 edges, it is better to store this kind of graph in an 
+adjacency list, because if we use an adjacency matrix, the size of the matrix will be 200x200 with a lot of zero values. 
+The adjacency matrix is preferable when we expect the graph to have a lot of edges, and the matrix will be dense. In the
+adjacency matrix, the lookup and check for the presence or absence of an edge are very easy compared to adjacency list representation.
+

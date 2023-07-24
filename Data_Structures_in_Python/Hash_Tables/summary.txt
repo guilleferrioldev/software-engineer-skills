@@ -1,0 +1,97 @@
+A hash table is a data structure that implements an associative array in which the data is stored by mapping the keys 
+to the values as key-value pairs. In many applications, we mostly require different operations such as insert, search,
+and delete in a dictionary data structure. For example, a symbol table is a data structure based on a hash table that
+is used by the compiler. A compiler that translates a programming language maintains a symbol table in which keys are
+character strings that are mapped to the identifiers. In such situations, a hash table is an effective data structure
+since we can directly compute the index of the required record by applying a hash function to the key. So, instead
+of using the key as an array index directly, the array index is computed by applying the hash function to the key.
+It makes it very fast to access an element from any index from the hash table. The hash table uses the hashing
+function to compute the index of where the data item should be stored in the hash table.
+
+While looking up an element in the hash table, hashing of the key gives the index of the corresponding record in the table.
+Ideally, the hash function assigns a unique value to each of the keys; however, in practice, we may get hash collisions 
+where the hash function generates the same index for more than one key. In this chapter, we will be discussing different
+techniques that deal with such collisions.
+
+
+Hashing is a technique in which, when we provide data of arbitrary size to a function, we get a small, simplified value. 
+This function is called a hash function. Hashing uses a hash function to map the keys to another range of data in a way
+that a new range of keys can be used as an index in the hash table; in other words, hashing is used to convert the key 
+values to integer values, which can be used as an index in the hash table
+
+
+A perfect hashing function is one by which we get a unique hash value for a given string (it can be any data type; here,
+we are using a string data type as an example). Our aim is to create a hash function that minimizes the number of collisions,
+is fast, easy to compute, and distributes the data items equally in the hash table. But, normally, creating an efficient
+hash function that is fast as well as providing a unique hash value for each string is very difficult. 
+
+Open adressing
+In open addressing, the key values are stored in the hash table, and collisions are resolved using the probing technique.
+Open addressing a collision resolution technique used in hash tables. The collision is resolved by searching (also called 
+probing) an alternate position until we get an unused slot in the hash table to store the data item.
+
+There are three popular approaches for an open addressing-based collision resolution technique:
+- 1. Linear probing
+- 2. Quadratic probing
+- 3. Double hashing
+
+
+Growing a hash table
+To grow the size of the hash table, we compare the size and the count in the table. size is the total number of slots,
+and count denotes the number of slots that contain elements. So, if count is equal to size, this means we have filled
+up the table. The load factor of the hash table is generally used to expand the size of the table; that gives us an 
+indication of how many available slots of the table have been used. The load factor of the hash table is computed by
+dividing the number of used slots by the total number of slots in the table. It is defined as follows:
+Load factor = n/k
+
+Retrieving elements from the hash table
+
+Once we have the hash value of the key, we look up the hash table at the position of the hash value. If the key item is
+matched with the stored key value at that location, the corresponding value is retrieved.
+
+If that does not match, then we add 1 to the sum of the ordinal values of all the characters in the string, similar to what
+we did at the time of storing the data, and we look at the newly obtained hash value. We keep searching until we get the 
+key element, or we check all the slots in the hash table.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

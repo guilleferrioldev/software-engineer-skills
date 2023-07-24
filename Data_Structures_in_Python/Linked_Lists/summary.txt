@@ -1,0 +1,43 @@
+These types of data structures have certain advantages over arrays. In the case of arrays, insertion and deletion
+are quite time-consuming as these operations require the shifting of elements downward and upward, respectively, due
+to contiguous memory allocations. On the other hand, in the case of linked lists, these operations require only changes
+in pointers. Another advantage of linked lists over arrays is the allowance of a dynamic memory management scheme that
+allocates memory during the runtime as and when needed, while the array is based on a static memory allocation scheme.
+
+
+The singly linked list can traverse in a forward direction only, while traversal in doubly linked lists is bidirectional,
+hence the reason why the deletion of a node in a doubly linked list is easy compared to a singly linked list. Similarly,
+circular linked lists save time while accessing the first node from the last node as compared to the singly linked list.
+Thus, each list has its advantages and disadvantages. We should use them as per the requirements of the application
+
+
+Practical applications of linked lists:
+Singly linked lists, circular linked lists, and doubly linked lists.Depending upon what kind of operations (insertion, deletion,
+updating, and so on) will be required in different applications, these data structures are used accordingly.
+
+Singly linked lists can be used to represent any sparse matrix. Another important application is to represent and manipulate
+polynomials by accumulating constants in the node of linked lists.
+
+It can also be used in implementing a dynamic memory management scheme that allows the user to allocate and deallocate the memory
+as per requirements during the execution of programs
+
+On the other hand, doubly linked lists are used by the thread schedular in the operating system to maintain the list of processes 
+running at that time. These lists are also used in the implementation of MRU (most recently used) and LRU (least recently used) 
+cache in the operating system.
+
+A doubly linked list is quite similar to the singly linked list in the sense that we use the same fundamental concept of nodes
+along with how we can store data and links together, as we did in a singly linked list. The only difference between a singly linked
+list and a doubly linked list is that in a singly linked list, there is only one link between each successive node, whereas, in a 
+doubly linked list, we have two pointers—a pointer to the next node and a pointer to the previous node.
+
+Doubly linked lists can also be used by various applications to implement Undo and Redo functionality. The browsers can use these 
+lists to implement backward and forward navigation of the web pages visited
+
+A circular linked list is a special case of a linked list. In a circular linked list, the endpoints are connected, which means that
+the last node in the list points back to the first node. In other words, we can say that in circular linked lists, all the nodes 
+point to the next node (and the previous node in the case of a doubly linked list) and there is no end node, meaning no node will point to None.
+
+A circular linked list can be used by operating systems to implement a round-robin scheduling mechanism. Another application of 
+circular linked lists is to implement Undo functionality in Photoshop or Word software and use it in implementing a browser cache
+that allows you to hit the BACK button. Besides that, it is also used to implement advanced data structures such as the Fibonacci
+heap. Multiplayer games also use a circular linked list to swap between players in a loop

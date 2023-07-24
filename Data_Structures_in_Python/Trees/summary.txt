@@ -1,0 +1,82 @@
+A tree is a hierarchical form of data structure. Data structures such as lists, queues, and stacks are linear in that the items are stored in a sequential way. However, a tree is a non-linear data structure, as there is a parent-child relationship between the items. The top of the tree’s data structure is known as a root node. This is the ancestor of all other nodes in the tree.
+
+Tree data structures are very important, owing to their use in various applications, such as parsing expressions, efficient searches, and priority queues. Certain document types, such as XML and HTML, can also be represented in a tree.
+
+
+To understand trees, we need to first understand the basic concepts related to them. A tree is a data structure in which data is organized in a hierarchical form.
+
+
+Here is a list of terms associated with a tree:
+- Node: Each circled letter in the preceding diagram represents a node. A node is any data structure that stores data
+
+- Root node: The root node is the first node from which all other nodes in the tree descend from. In other words, a root node is a node that does not have a parent node. In every tree, there is always one unique root node. 
+
+- Subtree: A subtree is a tree whose nodes descend from some other tree.
+
+- Degree: The total number of children of a given node is called the degree of the node. A tree consisting of only one node has a degree of 0.
+
+- Leaf node: The leaf node does not have any children and is the terminal node of the given tree. The degree of the leaf node is always 0. 
+
+- Edge: The connection among any given two nodes in the tree is called an edge. The total number of edges in a given tree will be a maximum of one less than the total nodes in the tree.
+
+- Parent: A node that has a subtree is the parent node of that subtree. 
+
+- Child: This is a node that is descendant from a parent node. 
+
+- Sibling: All nodes with the same parent node are siblings. 
+
+- Level: The root node of the tree is considered to be at level 0
+
+- Height of a tree: The total number of nodes in the longest path of the tree is the height of the tree.
+
+- Depth: The depth of a node is the number of edges from the root of the tree to that node.
+
+
+In linear data structures, data items are stored in sequential order, whereas non-linear data structures store data items in a non-linear order, where a data item can be connected to more than one other data item. All of the data items in linear data structures, such as arrays, lists, stacks, and queues, can be traversed in one pass, whereas this is not possible in the case of non-linear data structures such as trees; they store the data differently from other linear data structures.
+
+In a tree data structure, the nodes are arranged in a parent-child relationship. There should not be any cycle among the nodes in trees. The tree structure has nodes to form a hierarchy, and a tree that has no nodes is called an empty tree.
+
+
+A binary tree is a collection of nodes, where the nodes in the tree can have zero, one, or two child nodes. A simple binary tree has a maximum of two children, that is, the left child and the right child.
+
+ The nodes in the binary tree are organized in the form of the left subtree and right subtree. 
+
+ - A regular binary tree has no other rules as to how elements are arranged in the tree. It should only satisfy the condition that each node should have a maximum of two children
+ - A tree is called a full binary tree if all the nodes of a binary tree have either zero or two children, and if there is no node that has one child. 
+ - A perfect binary tree has all the nodes in the binary tree filled, and it doesn’t have space vacant for any new nodes; if we add new nodes, they can only be added by increasing the tree’s height.
+ - A complete binary tree is filled with all possible nodes except with a possible exception at the lowest level of the tree. All nodes are also filled on the left side. 
+
+A binary tree can be balanced or unbalanced. In a balanced binary tree, the difference in height of the left and right subtrees for every node in the tree is no more than 1.An unbalanced binary tree is a binary tree that has a difference of more than 1 between the right subtree and left subtree. 
+
+
+
+Applications of the tree traversals
+We have discussed different tree traversal algorithms; we can use any of these algorithms depending upon the application. 
+In-order traversal is very useful when we need sorted contents from a tree. This also applies if we need items in descending order,
+which we can do by reversing the order, such as right subtree, root, and then left subtree. This is known as reverse in-order traversal.
+And, if we need to inspect the root before any leaves, we use pre-order traversal. Likewise, if we
+need to inspect the leaf nodes before the root nodes.
+
+The following are some important applications of binary trees:
+1. Binary trees as expression trees are used in compilers
+2. It is also used in Huffman coding in data compression
+3. Binary search trees are used for efficient searching, insertion, and deletion of a list of items
+4. Priority Queue (PQ), which is used for finding and deleting minimum or maximum items
+in a collection of elements in logarithm time in the worst case
+
+
+Benefits of a binary search tree
+A binary search tree is, in general, a better choice compared to arrays and linked lists when we are mostly interested in accessing the 
+elements frequently in any application. A binary search tree is fast for most operations, such as searching, insertion, and deletion,
+whereas arrays provide fast searching, but are comparatively slow regarding insertion and deletion operations. In a similar fashion, 
+linked lists are efficient in performing insertion and deletion operations, but are slower when performing the search operation. 
+The best-case running time complexity for searching an element from a binary search tree is O(log n), and the worst-case time complexity
+is O(n),whereas both best-case and worst-case time complexity for searching in lists is O(n)
+
+
+A binary search tree (BST) is a special kind of binary tree. It is one of the most important and commonly used data structures in computer 
+science applications. A binary search tree is a tree that is structurally a binary tree, and stores data in its nodes very efficiently.
+It provides very fast search, insertion, and deletion operations.
+
+A binary tree is called a binary search tree if the value at any node in the tree is greater than the values in all the nodes of its left subtree,
+and less than (or equal to) the values of all the nodes of the right subtree. 

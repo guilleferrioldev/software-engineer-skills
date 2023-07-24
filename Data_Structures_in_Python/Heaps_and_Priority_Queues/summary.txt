@@ -1,0 +1,65 @@
+A heap data structure is a tree-based data structure in which each node of the tree has a specific relationship with other nodes,
+and they are stored in a specific order. Depending upon the specific order of the nodes in the tree, heaps can be of different types,
+such as a min heap and a max heap. 
+
+A heap data structure is a specialization of a tree in which the nodes are ordered in a specific way. A heap is a data structure where
+each data elements satisfies a heap property, and the heap property states that there must be a certain relationship between a parent
+node and its child nodes. According to this certain relationship in the tree, the heaps can be of two types, in other words, max heaps
+and min heaps. In a max heap, each parent node value must always be greater than or equal to all its children. In this kind of tree,
+the root node must be the greatest value in the tree. In a min heap, the relationship between parent and children is that the value
+of the parent node must always be less than or equal to its children. This rule should be followed by all the nodes in the tree. 
+In the min heap, the root node holds the lowest value. 
+
+Insert operation
+The insertion of an item into a min heap works in two steps. First, we add the new element to the end of the list (which we understand
+to be the bottom of the tree), and we increment the size of the heap by one. Secondly, after each insertion operation, we need to 
+arrange the new element up in the heap tree, to organize all the nodes in such a way that satisfies the heap property, which in this
+case is that each node must be larger than its parent. In other words, the value of the parent node must always be less than or equal
+to its children, and the lowest element in the min-heap needs to be the root element. Therefore, we first insert an element into the
+last heap of the tree; however, after inserting an element into the heap, it is possible that the heap property is violated. In that
+case, the nodes have to be rearranged so that all the nodes satisfy the heap property. This process is called heapifying. To heapify 
+the min heap, we need to find the minimum of its children and swap it with the current element, and this process has to be repeated 
+until the heap property is satisfied for all the nodes.
+
+Delete operation
+The delete operation removes an element from the heap. To delete any element from the heap, let’s first discuss how we can delete the root
+element since it is mostly used for several use cases, such as finding the minimum or maximum element in a heap. Remember, in a min-heap,
+the root element denotes the minimum value of the list, and the root of the max-heap gives the maximum value of the list of elements.
+
+Once we delete the root element from the heap, we make the last element of the heap the new root of the heap. In that case, the heap
+property will not be satisfied by the tree. So, we have to reorganize the nodes of the tree such that all the nodes of the tree satisfy 
+the heap property. The delete operation in min-heap works as follows.
+
+- 1. Once we delete the root node, we need a new root node. For this, we take the last item from the list and make it the new root.
+
+- 2. Since the selected last node might not be the lowest element of the heap, we have to reorganize the nodes of the heap.
+
+- 3. We reorganize the nodes from the root node to the last node (which is made into a new root); this process is called heapify.
+Since we move from top to bottom (which means from the root node down to the last element) of the heap, this process is called percolate down
+
+A priority queue is an important data structure that is similar to the queue and stack data structures that stores data along with the priority
+associated with them. In this, the data is served according to the priority. Priority queues can be implemented using an array, linked list, 
+and trees; however, they are often implemented using a heap as it is very efficient.
+
+A priority queue is a data structure that is similar to a queue in which data is retrieved based on the First In, First Out (FIFO) policy,
+but in the priority queue, priority is attached with the data. In the priority queue, the data is retrieved based on the priority associated
+with the data elements, the data elements with the highest priority are retrieved before the lower priority data elements,and if two data
+elements have the same priority, they are retrieved according to the FIFO policy.
+
+In the priority queue, the item with the highest priority is served first. The priority queue stores the data according to the priority
+associated with the data, so insertion of an element will be at a specific position in the priority queue. Priority queues can be considered
+as modified queues that return the items in the order of highest priority instead of returning the items in the FIFO order. A priority queue
+can be implemented by modifying an enqueue position by inserting the item according to the priority.
+
+Insertion 
+
+In the implementation, we assume that the data element has high priority if it has a smaller priority value. The following are cases of insertion
+of elements in a priority queue:
+- 1. Insertion of a data element to the priority queue when the queue is initially empty.
+
+- 2. If the queue is not empty, we perform the traversal of the queue and reach the appropriate index position in the queue according to the
+associated priorities by comparing the priorities of the existing node with the new node. We add the new node before the node that has a
+priority greater than the new node.
+
+- 3. If the new node has a lower priority than the high priority value, then the node will be added to the start of the queue.
+

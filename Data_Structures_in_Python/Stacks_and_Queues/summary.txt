@@ -1,0 +1,65 @@
+Stacks and queues have many important applications, such as form operating system architecture, arithmetic expression evaluation, load balancing,
+managing printing jobs, and traversing data. In stack and queue data structures, the data is stored sequentially, like arrays and linked lists,
+but unlike arrays and linked lists, the data is handled in a specific order with certain constraints, which we will be discussing in detail in this chapter. 
+Moreover, we will also examine how we can implement stacks and queues using linked lists and arrays
+
+A stack is a data structure that stores data, similar to a stack of plates in a kitchen.
+You can put a plate on the top of the stack, and when you need a plate, you take it from the top of the stack.
+The last plate that was added to the stack will be the first to be picked up from the stack.
+
+A stack is a data structure that stores the data in a specific order similar to arrays and linked lists, with several constraints:
+ - Data elements in a stack can only be inserted at the end (push operation)
+ - Data elements in a stack can only be deleted from the end (pop operation)
+ - Only the last data element can be read from the stack (peek operation)
+
+A stack data structure allows us to store and read data from one end, and the element which is added last is picked up first.
+Thus, a stack is a last in first out (LIFO) structure, or last in last out (LILO).
+
+Array-based implementations will have fixed lengths for the stack .It is important to check whether the stack is full or not,
+since trying to push an element into a full stack will generate an error,called an overflow. Likewise, trying to apply a pop 
+operation to an empty stack causes an error known as an underflow.
+
+
+
+-> Implementation using list 
+Queues are used to store data similarly to stacks and linked lists, with some constraints and in a specific order. The queue data structure
+is very similar to the regular queue you are accustomed to in real life. It is just like a line of people waiting to be served in sequential
+order at a shop. Queues are a fundamentally important concept to grasp since many other data structures are built on them.
+
+A queue works as follows. The first person to join the queue usually gets served first, and everyone will be served in the order in which
+they joined the queue. The acronym FIFO best explains the concept of a queue. FIFO stands for first in, first out. When people are standing
+in a queue waiting for their turn to be served, service is only rendered at the front of the queue. Therefore, people are dequeued from the
+front of the queue and enqueued from the back where they wait their turn. The only time people exit the queue is when they have been served,
+which only occurs at the very front of the queue.
+
+A queue is a list of elements stored in sequence with the following constraints:
+- Data elements can only be inserted from one end, the rear end/tail of the queue.
+- Data elements can only be deleted from the other end, the front/head of the queue.
+- Only data elements from the front of the queue can be read.
+
+
+
+-> Implementation using stack
+A queue is a linear data structure in which enqueue operations are performed from one end and deletion (dequeue) operations are performed
+from the other end following the FIFO principle.
+
+There are two methods to implement queues using stacks:
+1- When the dequeue operation is costly
+We use two stacks for the implementation of the queue. In this approach, the enqueue operation is straightforward. A new element can be 
+enqueued in the queue using the push operation on the first of the two stacks, used for the implementation of the queue.
+Further more, the dequeue operation can be implemented with two stacks (Stack-1 and Stack-2) using the following steps:
+- Firstly, the elements are removed (popped off) from Stack-1, and then one by one all the elements are added (pushed) to Stack-2.
+- The topmost data element will be popped off Stack-2 and will be returned as the desired element.
+- Finally, the remaining elements are popped off Stack-2 one by one and then pushed again to Stack-1. 
+
+2- When the enqueue operation is costly 
+In this method, the enqueue operation is quite similar to the dequeue operation of the previous approach we just discussed, and the dequeue
+operation is likewise similar to the previous enqueue operation. Following this steps:
+- Move all the elements from Stack-1 to Stack-2.
+- Push the element we want to enqueue to Stack-2.
+- Move all the elements from Stack-2 to Stack-1 one by one. Pop the elements from Stack-2 and push them to Stack-1 
+
+Applications
+Array and Linked List are important because of their many applications. For example, in any application, it may be required to add or delete
+any element in a particular order. stack and queues can be used for this to avoid any potential bug in the program, perhaps accessing/deleting 
+an element from the middle of the list.
