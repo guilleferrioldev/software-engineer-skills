@@ -1,25 +1,36 @@
 ### Circular Linked List
 
-# Implementation of the node
+from typing import Self, Any
+
 class Node:
+    """Implementation of the node"""
     def __init__(self, data = None):
         self.data = data
         self.next = None
 
+class CircularLinkedList:
+    """Implementation of the circular linked list"""
+    def __init__ (self, tail = None, head = None, size = 0):
+        self.tail = tail
+        self.head = head
+        self.size = size
+        
+    def __iter__(self):
+        """Method to iterate through the list"""
+        current = self.head
+        
+        while current:
+            value = current.data
+            current = current.next
+            yield value
+            
+    def __len__(self):
+        return self.size
 
-# Implementation of the circular linked list
-class CircularList:
-    def __init__ (self):
-        self.tail = None
-        self.head = None
-        self.size = 0
-
-    # Function to insert a node at the end of the list
     def append(self, data):
-        # Create a new node
+        """Method to insert a node at the end of the list"""
         node = Node(data)
         
-
         if self.tail:
             self.tail.next = node
             self.tail = node
@@ -29,33 +40,18 @@ class CircularList:
             self.tail = node
             self.tail.next = self.tail
             self.size += 1
+        
     
-    # Function to insert a node at the beginning of the list
     def push(self, data):
+        """Method to insert a node at the beginning of the list"""
         node = Node(data)
         node.next = self.head
         self.head = node
         self.tail.next = node
         self.size += 1
 
-    # Function to iterate through the list
-    def iter(self):
-        current = self.head
-        
-        while current:
-            val = current.data
-            current = current.next
-            yield val
-    
-    # Function to know if a node exists
-    def search(self, data):
-        for node in self.iter():
-            if data == node:
-                return True
-        return False
-    
-    # Function to delete a node in the list
     def delete(self, data):
+        """Method to delete a node in the list"""
         current = self.head
         prev = self.head
         
@@ -77,16 +73,37 @@ class CircularList:
             prev = current
             current = current.next
     
-    # Function to clear the list 
-    def clear(self):
+    def clear(self) -> None:
+        """Method to clear the list"""
         self.tail = None
         self.head = None
+
+    def __repr__(self) -> str:
+        """Method to print the list"""
+        return self.__getitem__(len(self))
     
-    # Function to print the list
-    def print(self, number):
+    def __getitem__(self, number: int) -> str:
+        """Auxiliar method to print the list"""
         counter = 1
-        for word in words.iter():
-            print(word, end = " -> ")
+        result = ""
+        for word in self:
+            result = result + str(word) + " -> "
             counter += 1
             if counter > number:
                 break
+            
+        return result + "end"
+    
+if __name__ == "__main__":
+    circular_linked_list = CircularLinkedList()
+    circular_linked_list_2 = CircularLinkedList()
+    circular_linked_list.append(5)
+    circular_linked_list.push(10)
+    
+    print(circular_linked_list)
+    print(circular_linked_list[5])
+    
+    circular_linked_list.delete(10)
+    print(circular_linked_list)
+
+    

@@ -1,23 +1,94 @@
-### Double Linked List
-
-# Implementation of the node 
 class Node:
+    """Implementation of the node"""
     def __init__(self, data = None, next = None, prev = None):
         self.data = data
         self.next = next
         self.prev = prev
 
-# Implementation of the double linked list
 class DoublyLinkedList:
-    def __init__ (self):
-        self.head = None
-        self.tail = None
-        self.count = 0
+    """Implementation of the double linked list"""
+    def __init__ (self, head = None, tail = None, size = 0):
+        self.head = head
+        self.tail = tail
+        self.size = size
+        
+    def __iter__(self):
+        """Method to iterate the list"""
+        while self.head:
+            val = self.head.data
+            current = self.head.next
+            yield val
 
+    def __len__(self):
+        return self.size
+    
+    def __getitem__(self, index):
+        if not isinstance(index, int):
+            raise TypeError("The index must be an integer")
+        
+        if abs(index) > self.size or index == self.size:
+            raise IndexError("Linked List index out of range") 
+        
+        count = 0
+        
+        if index == 0:
+            return self.head.data
+        elif index > 0:
+            current = self.head
+            while count != index:
+                current = current.next 
+                count += 1
+            return current.data
+        else:
+            current = self.tail
+            while count != index + 1:
+                current = current.prev
+                count -= 1 
+            return current.data
+        
+    def __setitem__(self, index, data):
+        new_node = Node(data)
+        
+        if not isinstance(index, int):
+            raise TypeError("The index must be an integer")
+        
+        if abs(index) > self.size:
+            raise IndexError("Linked List index out of range") 
+        
+        new_Node = Node(data)
+        
+        count = 0
+        if index == 0:
+            self.size -= 1
+            self.push(data) 
+        elif index == -1:
+            self.size -= 1
+            self.append(data)
+        elif index > 0:
+            current = self.head
+            while count < index - 1:
+                current = current.next
+                count += 1 
 
-    #Function to append a node at the end to the list
+            new_node.next = current.next
+            new_node.prev = current
+            current.next = new_node
+        else:
+            current = self.tail
+            while count != index + 1:
+                current = current.prev
+                count -= 1
+            
+            new_node.prev = current
+            new_node.next = current.next
+            current.next = new_node
+            
+        self.size += 1
+                
+        
     def append(self, data):
-        new_node = Node(data, None, None)
+        """Method to append a node at the end to the list"""
+        new_node = Node(data)
         if self.head is None:
             self.head = new_node
             self.tail = self.head
@@ -25,12 +96,11 @@ class DoublyLinkedList:
             new_node.prev = self.tail
             self.tail.next = new_node
             self.tail = new_node
-        self.count += 1
+        self.size += 1
 
-
-    #Function to insert a node at beginning to the list.
     def push(self, data):
-        new_node = Node(data, None, None)
+        """Method to insert a node at beginning to the list."""
+        new_node = Node(data)
         if self.head is None:
             self.head = new_node
             self.tail = self.head
@@ -38,201 +108,63 @@ class DoublyLinkedList:
             new_node.next = self.head
             self.head.prev = new_node
             self.head = new_node
-        self.count += 1
-
-    
-    # Function to insert a node after an existing node
-    def insert_by_element(self, data, new_node):
-        current = self.head
-        prev = self.head
-        new_node = Node(new_node, None, None)
-
-        while current:
-            if current.data == data:
-                new_node.prev = current
-                new_node.next = current.next
-                current.next = new_node
-                self.count += 1
-            prev = current
-            current = current.next
-    
-
-    # Function to insert a node in an index
-    def insert_by_index(self, data ,index):
-        count = 0
-        current = self.head
-        prev = self.head
-        new_node = Node(data, None, None)
-        
-        # Size of the list
-        count_sizer = 0
-        current_2 = self.head
-        while current_2:
-            count_sizer += 1 
-            current_2 = current_2.next
-        
-        # Insert item in the first node 
-        if index == 0:
-            if self.head is None:
-                self.head = new_node
-                self.tail = self.head
-            else:
-                new_node.next = self.head
-                self.head.prev = new_node
-                self.head = new_node
-            self.count += 1
+        self.size += 1
             
-        # Insert item in the last node
-        elif index == count_sizer:
-            new_node.prev = self.tail
-            self.tail.next = new_node
-            self.tail = new_node
+            
+    def popleft(self):
+        """Method to delete the first node"""
+        if self.head is None:
+            raise IndexError("There is no node to delete")
+
+        value = self.head
+        self.head.prev = None
+        self.head = self.head.next
+        return value
+    
+    def pop(self):
+        """Method to delete the last node"""
+        if self.head is None:
+            raise IndexError("There is no node to delete")
         
-        # When index is greater than the size of the list
-        elif index > count_sizer:
-            print("Cannot insert, index is greater than the size of the list")
+        value = self.tail
+        self.tail = self.tail.prev
+        self.tail.next = None
+        return value
         
-        # Insert node at the middle of the list
-        else:
-            while current:
-                if count == index:
-                    new_node.prev = prev
-                    new_node.next = current
-                    prev.next = new_node
-                    current.prev = new_node
-                    self.count += 1
-                    return
-                count += 1
-                prev = current
-                current = current.next
-                            
-    
-    # Function to iterate the list
-    def iter(self):
-        while self.head:
-            val = self.head.data
-            current = self.head.next
-            yield val
-    
-    # Functionto know the size of the list
-    def sizer(self):
-        count= 0
-
-        while self.head:
-            count += 1 
-            self.head = self.head.next 
-        return count
-
-
-    # Function to kow if a node exists
-    def search(self, data):
-        for node_data in self.iter():
-            if data == node_data:
-                return True 
-        return False 
-
-    
-    # Function to delete a node by name
-    def delete(self, data):
-        # Delete a node from the list.
-        current = self.head
-        node_deleted = False
-
-        if current is None:
-        #List is empty
-            print("List is empty")
-        elif current.data == data:
-            #Item to be deleted is found at beginning of the list
-            self.head.prev = None
-            node_deleted = True
-            self.head = current.next
-        elif self.tail.data == data:
-            #Item to be deleted is found at the end of list
-            self.tail = self.tail.prev
-            self.tail.next = None
-            node_deleted = True
-        else:
-            while current:
-            #search item to be deleted, and delete that node
-                if current.data == data:
-                    current.prev.next = current.next
-                    current.next.prev = current.prev
-                    node_deleted = True
-                current = current.next
-            if node_deleted == False:
-                # Item to be deleted is not found in the list
-                print("Cannot delete, item not found")
-        if node_deleted:
-            self.count -= 1
-    
-    
-    #  Function to delete a node at any position
-    def delete_by_index(self, index):
+    def delete(self, index):
+        if not isinstance(index, int):
+            raise TypeError("The index must be an integer")
+        
+        if abs(index) > self.size or index == self.size:
+            raise IndexError("Linked List index out of range") 
+        
         count = 0
-        current = self.head
-        prev = self.head
-        node_deleted = False
         
-        # Size of the list
-        count_sizer = 0
-        current_2 = self.head
-        while current_2:
-            count_sizer += 1
-            current_2  = current_2.next
+        if index == 0 or index + self.size == 0:
+            self.size += 1
+            self.popleft()
+        elif index in {self.size -1, -1}:
+            self.size += 1
+            self.pop()     
+        elif index > 0:
+            current = self.head
+            while count != index:
+                current = current.next 
+                count += 1
+            current.prev.next = current.next 
+            current.next.prev = current.prev
+        else:
+            current = self.tail
+            while count != index + 1:
+                current = current.prev
+                count -= 1 
+            current.prev.next = current.next 
+            current.next.prev = current.prev
         
-        # Item to be deleted is found at the starting of the list
-        if index == 0:
-            self.head.prev = None
-            node_deleted = True
-            self.head = current.next
-        
-        # Item to be deleted is found at the end of the list
-        elif index == count_sizer -1:
-            self.tail = self.tail.prev
-            self.tail.next = None
-            node_deleted = True
+        self.size -= 1
 
-        else:
-            while current:
-                # Search item to be deleted, and delete the node
-                if count == index:
-                    current.prev.next = current.next
-                    current.next.prev = prev
-                    node_deleted = True
-                    return 
-                else:    
-                    count += 1
-                    prev = current
-                    current = current.next
-
-            if node_deleted == False:
-                #Item to be deleted is not found in the list
-                print("Cannot delete, index not found")
-        if node_deleted:
-            self.count -= 1
-                
-    
-    # Function to delete the first node
-    def delete_first_node(self):
-        """
-        Check if there is no item to delete from the list, and we print the appropriate message.
-        """
-        if self.head is None:
-            print("There is no node to delete")
-        else:
-            self.head.prev = None
-            self.head = current.next
-    
-    # Function to delete the last node
-    def delete_last_node(self):
-        if self.head is None:
-            print("There is no node to delete")
-        else:
-            self.tail = self.tail.prev
-            self.tail.next = None
-
-    # Function to reverse the list
     def reverse(self):
+        """Method to reverse the list"""
         prev = None
 
         while self.head:
@@ -240,15 +172,33 @@ class DoublyLinkedList:
             self.head.prev = self.head.next
             self.head.next = prev
             self.head = self.head.prev
-    self.head = prev.prev
+        self.head = prev.prev
     
-    # Function to clear the list
     def clear(self):
+        """Method to clear the list"""
         self.tail = None
         self.head = None
 
-    # Function to print th list
-    def print(self):
-        while self.head:
-            print(self.head.data, end = " <-> ")
-            self.head = self.head.next
+    def __repr__(self):
+        """Method to print th list"""
+        result = ""
+        current = self.head
+        while current:
+            result = result + str(current.data) + " <-> "
+            current= current.next
+            
+        return result + "end"
+
+if __name__ == "__main__":
+    doble_linked_list = DoublyLinkedList()
+    doble_linked_list.append(5)
+    doble_linked_list.push(15)
+    doble_linked_list.push("a")
+    print(doble_linked_list[-2])
+    
+    doble_linked_list[-1] = 2
+    print(doble_linked_list)
+    
+    doble_linked_list.delete(-2)
+    print(doble_linked_list)
+    
