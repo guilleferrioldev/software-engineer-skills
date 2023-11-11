@@ -1,0 +1,12 @@
+Succinct structures are compressed data structures designed to represent data in a space-efficient manner while allowing basic operations such as search, 
+insertion, deletion, and navigation on the original data. These structures are characterized by taking up very little space compared to the uncompressed 
+representation of the same data.
+
+Succinct structures are valuable in environments where space savings are critical, such as in managing large data sets or in memory-constrained systems. 
+These structures take advantage of efficient compression and representation techniques to achieve a good relationship between the space occupied and the 
+ability to perform operations on the data.
+
+Some examples of succinct structures include succinct trees, succinct arrays, and succinct graphs, among others. Each of these structures is designed to 
+represent and manipulate different types of data in a space-efficient manner.
+
+
