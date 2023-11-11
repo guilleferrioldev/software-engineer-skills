@@ -39,7 +39,7 @@ from __future__ import annotations
 from abc import ABC, abstractmethod
 
 
-"""Abstraccion de las fabricas"""
+"""Factory abstraction"""
 class AbstractFactory(ABC):
     @abstractmethod
     def create_chair(self) -> AbstractChair:
@@ -49,7 +49,7 @@ class AbstractFactory(ABC):
     def create_sofa(self) -> AbstractSofa:
         pass
 
-# Fabrica Moderna (concreta)
+# Modern Factory (concrete)
 class ModernFactory(AbstractFactory):
     def create_chair(self) -> AbstractChair:
         return ModernChair()
@@ -57,7 +57,7 @@ class ModernFactory(AbstractFactory):
     def create_sofa(self) -> AbstractSofa:
         return ModernSofa()
 
-# Vieja fabrica (concreta)
+# Old Factory (concrete)
 class OldFactory(AbstractFactory):
     def create_chair(self) -> AbstractChair:
         return OldChair()
@@ -65,24 +65,24 @@ class OldFactory(AbstractFactory):
     def create_sofa(self) -> AbstractSofa:
         return OldSofa()
 
-"""Abstraccion de las silla"""
+"""Chair abstrations"""
 class AbstractChair(ABC):
     @abstractmethod
     def create_a_chair(self) -> str:
         pass
 
-# Silla moderna (concreta)
+# Modern chair (concrete)
 class ModernChair(AbstractChair):
     def create_a_chair(self) -> str:
         return "Modern Chair"
 
-# Silla vieja (concreta)
+# Old chair (concrete)
 class OldChair(AbstractChair):
     def create_a_chair(self) -> str:
         return "Old Chair"
 
 
-"""Abstracciones de los sofas"""
+"""Sofa abstractions"""
 class AbstractSofa(ABC):
     @abstractmethod
     def create_a_sofa(self) -> None:
@@ -92,7 +92,7 @@ class AbstractSofa(ABC):
     def another_create_a_sofa(self, collaborator: AbstractChair) -> None:
         pass
 
-# Sofa moderno (concreto)
+# Modern sofa (concrete)
 class ModernSofa(AbstractSofa):
     def create_a_sofa(self) -> str:
         return "The result of the product Modern Sofa."
@@ -101,7 +101,7 @@ class ModernSofa(AbstractSofa):
         result = collaborator.create_a_chair()
         return f"The result of the Modern Sofa collaborating with the ({result})"
 
-# Sofa viejo (concreto)
+# Old sofa (concrete)
 class OldSofa(AbstractSofa):
     def create_a_sofa(self) -> str:
         return "The result of the product Old Chair."

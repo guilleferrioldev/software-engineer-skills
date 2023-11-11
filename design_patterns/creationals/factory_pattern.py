@@ -62,12 +62,12 @@ class Creator(ABC):
 
         return result
 
-# Creador 1 (concreto)
+# Creator 1 (concrete)
 class ConcreteCreator1(Creator):
     def factory_method(self) -> Product:
         return ConcreteProduct1()
 
-# Creador 2 (concreto)
+# Creator 2 (concrete)
 class ConcreteCreator2(Creator):
     def factory_method(self) -> Product:
         return ConcreteProduct2()
@@ -78,12 +78,12 @@ class Product(ABC):
     def operation(self) -> str:
         pass
     
-# Product 1 (concreto)   
+# Product 1 (concrete)  
 class ConcreteProduct1(Product):
     def operation(self) -> str:
         return "{Result of the ConcreteProduct1}"
 
-# Product 2 (concreto)  
+# Product 2 (concrete)    
 class ConcreteProduct2(Product):
     def operation(self) -> str:
         return "{Result of the ConcreteProduct2}"

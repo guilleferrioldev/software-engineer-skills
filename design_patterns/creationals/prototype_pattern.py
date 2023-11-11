@@ -12,7 +12,7 @@ It may be that someone created these subclasses in order to create objects with 
 existing, if you have it.
 
 2. A prototype class must define the alternative constructor that accepts an object of that class as an argument. The constructor must copy the
-values ​​of all fields defined in the object class that are passed to the newly created instance. If you want to change a subclass, you must invoke
+values of all fields defined in the object class that are passed to the newly created instance. If you want to change a subclass, you must invoke
 to the parent constructor to allow the superclass to handle cloning of its private fields.
 
 3. Typically, the clone method consists of a single line that executes a new operator with the prototypical version of the constructor. Note that

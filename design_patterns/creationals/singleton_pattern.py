@@ -41,7 +41,7 @@ overriding static methods, you'll have to think of an original way to simulate t
 the Singleton pattern.
 """
 
-# Implementacion de Java
+# Java implementation
 class User(object):
     __instance = None
     
@@ -53,7 +53,7 @@ class User(object):
         return User.__instance 
 
 
-# Implementacion pythonica
+# Pythonic implementation
 def singleton(cls):
     __instances = dict()
     
@@ -72,7 +72,7 @@ class Usuario(object):
 
 
 
-# Implementacion con metaclases
+# Implementation with metaclasses
 class SingletonMeta(type):
     __instances = {}
 
