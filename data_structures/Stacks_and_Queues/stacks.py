@@ -48,7 +48,7 @@ class Node:
         self.data = data
         self.next = None
 
-class StackList:
+class StackLinkedList:
     """Stack implementation using single linked lists"""
     def __init__(self, maxsize: int = float("inf")) -> None:
         self.top: Node = None
@@ -59,7 +59,7 @@ class StackList:
         """Method to know if the stack is empty"""
         return self.top is None
 
-    def push(self, data: Any) -> None:
+    def push(self, data: Any) -> None | Exception:
         """Method to add an element """
         node = Node(data)
         
@@ -77,7 +77,7 @@ class StackList:
     def pop(self) -> Node | str:
         """Method to delete an element"""
         if self.top is None:
-            raise "Stack is empty"
+            return "Stack is empty"
         
         data = self.top.data
         self.top = self.top.next
