@@ -1,107 +1,99 @@
 ### Stacks
 
-# Stacks implemnetation using Array-based
+from typing import Any
 
-class Stack_Arrays:
-    def __init__(self, size):
+class StackOverflowError(Exception):
+    pass
+
+class StackArrays:
+    """Stacks implemnetation using Array-based"""
+    def __init__(self, size: int = float("inf")) -> None:
         self.items = []
         self.top = -1
         self.size = size
     
-    # Function to know if a stack is empty
-    def isEmpty(self):
+    def isEmpty(self) -> bool:
+        """Method to know if a stack is empty"""
         return self.items == []
     
-    # Function to add an element 
-    def push(self, item):
+    def push(self, item: Any) -> None | Exception:
+        """ Method to add an element """
         if self.top >= self.size -1 :
-            print("Stack Overflow")
-        else:    
-            self.top += 1
-            self.items.append(item)
+            raise StackOverflowError()    
+        self.top += 1
+        self.items.append(item)
     
-
-    # Function to delete an element 
-    def pop(self):
+    def pop(self) -> str | Any:
+        """Method to delete an element """
         if self.top == -1:
-            print("Stack Underflow")
-        else:
-            self.top -= 1
-            return self.items.pop()
+            return "Stack Underflow"    
+        self.top -= 1
+        return self.items.pop()
     
-
-    # Function to check the top element
-    def peek(self):
+    def peek(self) -> str | Any:
+        """Method to check the top element"""
         if self.top == -1:
-            print("Stack is empty")
-        else:
-            return self.items[self.top]
+            return "Stack is empty"
+        return self.items[self.top]
 
-    # Function to print the stack
-    def print(self):
-        print(self.items)
+    def __repr__(self) -> str:
+        return f"{self.items}"
 
 
 
-
-# Stack implementation using single linked lists 
-
-# Node implementation
+########################################################################
 class Node:
-    def __init__(self, data=None):
+    """Node implementation"""
+    def __init__(self, data: Any) -> None:
         self.data = data
         self.next = None
 
-
-class Stack_List:
-    def __init__(self):
-        self.top = None
+class StackList:
+    """Stack implementation using single linked lists"""
+    def __init__(self, maxsize: int = float("inf")) -> None:
+        self.top: Node = None
         self.size = 0
+        self.maxsize = maxsize
 
-    #  Function to know if the stack is empty
-    def isEmpty(self):
-        if self.top is None:
-            return True
-        else:
-            return False
+    def is_empty(self) -> bool:
+        """Method to know if the stack is empty"""
+        return self.top is None
 
-    # Function to add an element 
-    def push(self, data):
-        # create a new node
+    def push(self, data: Any) -> None:
+        """Method to add an element """
         node = Node(data)
+        
+        if self.size >= self.maxsize:
+            raise StackOverflowError()
     
         if self.top:
             node.next = self.top
             self.top = node
         else:
             self.top = node
+        
         self.size += 1
     
-
-    # Function to delete an element 
-    def pop(self):
-        if self.top:
-            data = self.top.data
-            self.size -= 1
-            if self.top.next: #check if there is more than one node.
-                self.top = self.top.next
-            else:
-                self.top = None
-            return data
-        else:
-            print("Stack is empty")
-
+    def pop(self) -> Node | str:
+        """Method to delete an element"""
+        if self.top is None:
+            raise "Stack is empty"
+        
+        data = self.top.data
+        self.top = self.top.next
+        self.size -= 1
+        return data
     
-    # Function to check the top element
-    def peek(self):
+    def peek(self) -> Node | str:
+        """Method to check the top element"""
         if self.top:
             return self.top.data    
-        else:   
-            print("Stack is empty")
+        return "Stack is empty"
 
-    # Function to print the stack
-    def print(self):
+    def __repr__(self) -> str:
         current = self.top
+        result = "["
         while current:
-            print(current.data, end = " -> ")
+            result = result + str(current.data) + ", "
             current = current.next
+        return result[:-2] + "]" if len(result) > 1 else result + "]"

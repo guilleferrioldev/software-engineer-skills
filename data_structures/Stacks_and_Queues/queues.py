@@ -1,113 +1,108 @@
 ### Queues
 
-# Implementation using Arrays
-class Queue_Array:
-    def __init__(self, size = None):
+from typing import Any, Self
+
+class QueueArray:
+    """Implementation using Arrays"""
+    def __init__(self, size: int = None) -> None:
         self.items = []
         self.front = self.rear = 0
         self.size = size
     
-    # Function to enqueue an element
-    def enqueue(self, data):
+    def enqueue(self, data: Any) -> None:
+        """Method to enqueue an element"""
         if self.size == self.rear:
-            print("Queue is full")
-        else:
-            self.items.append(data)
-            self.rear += 1
+            return "Queue is full"
+        self.items.append(data)
+        self.rear += 1
     
-    # Function to dequeue an element
-    def dequeue(self):
+    def dequeue(self) -> Any:
+        """ Method to dequeue an element"""
         if self.front == self.rear:
-            print("Queue is empty")
-        else:
-            data = self.items.pop(0) #delete the item from front end of the queue
-            self.rear -= 1
-            return data
-    
-    # Function to print the queue
-    def print(self):
-        print(self.items)
+            return "Queue is empty"
+        
+        data = self.items.pop(0) 
+        self.rear -= 1
+        return data
+  
+    def __repr__(self) -> str:
+        return str(self.items)
 
 
-
-# Implementation using linked lists
-
-# Implementation of the node
-class Node(object):
-    def __init__(self, data=None, next=None, prev=None):
+######################################################################################################
+class Node:
+    """Implementation of the node"""
+    def __init__(self, data: Any = None, next: Self = None, prev: Self = None) -> None:
         self.data = data
         self.next = next
         self.prev = prev
 
-
-class Queue_List:
-    def __init__(self):
-        self.head = None
-        self.tail = None
-        self.count = 0
+class QueueLinkedList:
+    """Implementation using linked lists"""
+    def __init__(self) -> None:
+        self.front = None
+        self.rear = None
+        self.size = 0
     
-    # Function to eneque an element
-    def enqueue(self, data):
-        new_node = Node(data, None, None)
+    def enqueue(self, data: Any) -> None:
+        """Method to eneque an element"""
+        new_node = Node(data)
         
-        if self.head == None:
-            self.head = new_node
-            self.tail = self.head
+        if self.front is None:
+            self.front = new_node
+            self.rear = self.front
         else:
-            new_node.prev = self.tail
-            self.tail.next = new_node
-            self.tail = new_node
+            new_node.prev = self.rear
+            self.rear.next = new_node
+            self.rear = new_node
         
-        self.count += 1
-
-    # Function to dequeue an element
-    def dequeue(self):
-        if self.count == 1:
-            self.count -= 1
-            self.head = None
-            self.tail = None
-        elif self.count > 1:
-            self.head = self.head.next
-            self.head.prev = None
-        elif self.count <1:
-            print("Queue is empty")
+        self.size += 1
         
-        self.count -= 1 
+    def dequeue(self) -> Node:
+        """Method to dequeue an element"""
+        if self.size < 1:
+            return "Queue is empty"
+        
+        data = self.front.data
+        
+        if self.size == 1:
+            self.front = self.rear = None
+        elif self.size > 1:
+            self.front = self.front.next
+            self.front.prev = None
+        
+        self.size -= 1 
+        return data
 
-    # Function to print the queue
-    def print(self):
-        current = self.head
+    def __repr__(self) -> str:
+        current = self.front
+        result = "["
         while current:
-            print(current.data, end = " <-> ")
+            result = result + str(current.data) + ", "
             current = current.next
+        return result[:-2] + "]" if len(result) > 1 else result + "]"
 
 
-
-# Implementation using stack
-
-class Queue_Stack:
-    def __init__(self):
-        self.Stack1 = []
-        self.Stack2 = []
+#################################################################################################
+class QueueStacks:
+    """Implementation using stack"""
+    def __init__(self) -> None :
+        self.stack1 = []
+        self.stack2 = []
     
-    # Function to enqueue an element
-    def enqueue(self, data):
-        self.Stack1.append(data)
+    def enqueue(self, data: Any) -> None:
+        """Method to enqueue an element"""
+        self.stack1.append(data)
     
-    # Function to dequeue an element
     def dequeue(self):
-        if not self.Stack2:
-            while self.Stack1:
-                self.Stack2.append(self.Stack1.pop())
-        if not self.Stack2:
+        """Method to dequeue an element"""
+        if not self.stack2:
+            while self.stack1:
+                self.stack2.append(self.stack1.pop())
+        if not self.stack2:
             print("No element to dequeue")
             return
-        return self.Stack2.pop()
-    
-    # Function to print the stack1
-    def print_stack1(self):
-        print(self.Stack1)
-    
-    # Function to print the stack2
-    def print_stack2(self):
-        print(self.Stack2)
+        return self.stack2.pop()
+
+    def __repr__(self):
+        return f"stack1={self.stack1}, stack2={self.stack2})"
