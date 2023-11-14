@@ -1,4 +1,5 @@
 ### Deque 
+
 from typing import Any, List, Self, Iterable
 
 class DequeArray:
@@ -8,6 +9,9 @@ class DequeArray:
             self.items = items
         else:
             self.items = []
+    
+    def __len__(self):
+        return len(self.items)
         
     def append(self, item: Any) -> None:
         """Method to add an item to the end of the array"""
@@ -31,6 +35,7 @@ class DequeArray:
         
     def rotate(self, number: int) -> None:
         """Method to rotate the array"""
+        number = number % len(self.items)
         self.items = self.items[-number:] + self.items[:-number]
              
     def __getitem__(self, item: int) -> Any:
@@ -83,30 +88,25 @@ class DequeLinkedList:
             self.size += 1
             
         self.tail = current
+        
+    def __len__(self):
+        return self.size
     
     def __getitem__(self, index: int) -> Any:
         if not isinstance(index, int):
             raise TypeError("The index must be an integer")
         
         if abs(index) > self.size or index == self.size:
-            raise IndexError("Linked List index out of range")
+            raise IndexError("Linked List index out of range") 
         
         count = 0
+        index = index % self.size
         
-        if index == 0:
-            return self.head.data
-        elif index > 0:
-            current = self.head
-            while count != index:
-                current = current.next 
-                count += 1
-            return current.data
-        else:
-            current = self.tail
-            while count != index + 1:
-                current = current.prev
-                count -= 1 
-            return current.data
+        current = self.head
+        while count != index:
+            current = current.next 
+            count += 1
+        return current.data
         
     def append(self, item: Any) -> None:
         """Method to add an item to the end of the linked list"""
@@ -166,30 +166,23 @@ class DequeLinkedList:
         
     def rotate(self, number: int) -> None:
         """Method to rotate the linked list"""
-        if self.size == 0:
+        number = number % self.size
+        
+        if self.size == 0 or number == 0 or abs(number) == self.size:
             return 
         
         current = self.head 
-        counter = 0 
-        while counter < number and current is not None:
+        count = 0
+
+        while count < self.size - number:
             current = current.next
-            counter += 1
-
-        if current is None:
-            return
-
-        self.tail = current
-
-        while current.next is not None:
-            current = current.next
-
-        current.next = self.head
-        self.head.prev = current
-
-        self.head = self.tail.next
-        self.head.prev = None
+            count += 1
         
+        self.tail.next = self.head
+        self.tail = current.prev
         self.tail.next = None
+        self.head = current
+        self.head.prev = None
      
     def __repr__(self) -> str:
         if self.head is None:
@@ -201,12 +194,3 @@ class DequeLinkedList:
             current= current.next
             
         return result[:-2] + "]" if len(result) > 2 else result + "]"
-            
-x = DequeLinkedList([6,7,8])
-x.append(1)
-x.extend([2,3,5])
-
-print(x)
-
-        
-    
