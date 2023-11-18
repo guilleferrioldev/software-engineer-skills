@@ -37,22 +37,22 @@ class Stack:
         
         self.size += 1
     
-    def pop(self) -> Node | str:
+    def pop(self) -> Node:
         """Method to delete an element"""
-        if self.top is None:
-            return "Stack is empty"
+        if not self.top:
+            return
         
         data = self.top.data
         self.top = self.top.next
         self.size -= 1
         return data
     
-    def peek(self) -> Node | str:
+    def peek(self) -> Node:
         """Method to check the top element"""
-        if self.top:
-            return self.top.data    
-        return "Stack is empty"
-
+        if not self.top:
+            return     
+        return self.top.data
+    
     def __repr__(self) -> str:
         current = self.top
         result = "["
@@ -60,3 +60,4 @@ class Stack:
             result = result + str(current.data) + ", "
             current = current.next
         return result[:-2] + "]" if len(result) > 1 else result + "]"
+    

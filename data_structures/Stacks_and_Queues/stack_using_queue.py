@@ -12,6 +12,7 @@ class Stack:
         self.__rotate_queue(queue)
             
     def __rotate_queue(self, queue) -> None:
+        """Method to insert the elements when a list is introduced when the class is instantiated"""
         self.queue = []
         
         if queue is None:

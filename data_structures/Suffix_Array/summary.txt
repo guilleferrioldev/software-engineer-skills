@@ -1,0 +1,29 @@
+A suffix array is a data structure that stores all the suffixes of a given string in a specific order. A string suffix is
+​simply a substring that starts somewhere in the original string and extends to the end of the string.
+
+The main purpose of a suffix array is to facilitate quick search for common substrings between different strings, as well 
+as perform efficient queries on the original string.
+
+For example, if we had the string "banana", a suffix array of this string would contain the following suffixes in order:
+
+["banana", "anana", "nana", "ana", "na", "a"]
+
+This type of data structure is widely used in string search algorithms and in applications that require frequently querying 
+the substrings of a given string.
+
+The suffix array has a wide range of use cases in different fields. Some of them are:
+
+1. Common substring search: It can be used to find the longest common substrings between two or more strings. This is useful
+in bioinformatics, natural language processing, and other areas where text sequences are compared and analyzed.
+
+2. Efficient pattern search: Allows efficient searches for a pattern within a string. For example, in algorithms such as the
+Knuth-Morris-Pratt (KMP) substring search algorithm or the Boyer-Moore substring search algorithm.
+
+3. Text analysis: It can be used to analyze large amounts of text, such as in search engines, spell checking programs, text
+similarity analysis, etc.
+
+4. Data Compression: Storing the suffixes of a string can help in data compression, as repetitive patterns within the original
+string can be identified and stored efficiently.
+
+These are just a few examples of the many use cases in which a suffix array can be used to improve the efficiency and speed of
+different algorithms and applications.

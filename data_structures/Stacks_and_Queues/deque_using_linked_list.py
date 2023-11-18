@@ -11,13 +11,14 @@ class Node:
 
 class Deque:
     """Implementation using Linked List"""
-    def __init__(self, items: List = None) -> None:
+    def __init__(self, items: List[Any] = None) -> None:
         if items is not None:
             self.__create_items(items)
         else:
             self.__create_items([])
         
-    def __create_items(self, items: List) -> None:
+    def __create_items(self, items: List[Any]) -> None:
+        """Method to insert the elements when a list is introduced when the class is instantiated"""
         if len(items) == 0:
             self.head = None
             self.tail = None
@@ -46,6 +47,7 @@ class Deque:
         self.tail = current
         
     def __len__(self):
+        """Method to know the size"""
         return self.size
     
     def __getitem__(self, index: int) -> Any:
@@ -112,7 +114,7 @@ class Deque:
         self.size -= 1
         return popped
     
-    def extend(self, items: Iterable) -> None:
+    def extend(self, items: Iterable[Any]) -> None:
         """Method to add several elements to the linked list"""
         try:
             for item in items: 
@@ -141,6 +143,7 @@ class Deque:
         self.head.prev = None
         
     def clear(self):
+        """Method to clear all the list"""
         self.__create_items([])
      
     def __repr__(self) -> str:

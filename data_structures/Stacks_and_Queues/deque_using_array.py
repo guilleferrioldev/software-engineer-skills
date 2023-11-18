@@ -4,7 +4,7 @@ from typing import Any, List, Iterable
 
 class Deque:
     """Implementation using Array"""
-    def __init__(self, items: List = None) -> None:
+    def __init__(self, items: List[Any] = None) -> None:
         if items is not None:
             self.items = items
         else:
@@ -29,7 +29,7 @@ class Deque:
         """Method to remove an element at the beginning of the array"""
         return self.items.pop(0)
     
-    def extend(self, items: Iterable) -> Any:
+    def extend(self, items: Iterable[Any]) -> Any:
         """Method to add several elements to the array"""
         self.items.extend(items)
         
