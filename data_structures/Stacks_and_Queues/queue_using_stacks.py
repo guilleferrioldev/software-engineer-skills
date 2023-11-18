@@ -1,4 +1,10 @@
-# Queue implementation using stack
+# Queue implementation using stacks
+
+"""
+To achieve this, we can use two stacks. When we want to sneak an element, we simply add it to the first stack. 
+When we want to dequeue an element, we move all the elements from the first stack to the second stack, which 
+reverses the order, and then pop the top element from the second stack.
+"""
 
 from typing import Any
 
