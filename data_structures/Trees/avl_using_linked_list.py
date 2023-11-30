@@ -180,3 +180,6 @@ class AVLTree:
                 queue.append(node.right)
                 
         return result
+    
+    def __repr__(self) -> str:
+        return f"{self.level_order_traversal()}"
