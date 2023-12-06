@@ -17,9 +17,11 @@ class AVLTree:
         self.root = None  # Initializing AVL tree with no root initially
 
     def insert(self, value: Any) -> None:
+        """Method to insert a node"""
         self.root = self._insert(self.root, value)
 
     def _insert(self, root: Node, value: Any) -> Node:
+        """Auxiliar method to insert a node"""
         if not root:
             return Node(value)  # If the tree or subtree is empty, add the new node here
         
@@ -30,70 +32,76 @@ class AVLTree:
             root.right = self._insert(root.right, value)  # Recursively insert into the right subtree
 
         # Update the height of the current node
-        root.height = 1 + max(self.get_height(root.left), self.get_height(root.right))
+        root.height = 1 + max(self._get_height(root.left), self._get_height(root.right))
 
         # Get the balance factor of the node
-        balance = self.get_balance(root)
+        balance_factor = self._get_balance_factor(root)
 
         # Checking for tree imbalance and performing rotations if necessary
-        if balance > 1 and value < root.left.value:
-            return self.right_rotate(root)  # Right rotation
+        if balance_factor > 1 and value < root.left.value:
+            return self._right_rotate(root)  # Right rotation
         
-        if balance > 1 and value > root.left.value:
-            root.left = self.left_rotate(root.left)
-            return self.right_rotate(root)  # Left-Right rotation
+        if balance_factor > 1 and value > root.left.value:
+            root.left = self._left_rotate(root.left)
+            return self._right_rotate(root)  # Left-Right rotation
         
-        if balance < -1 and value > root.right.value:
-            return self.left_rotate(root)  # Left rotation
+        if balance_factor < -1 and value > root.right.value:
+            return self._left_rotate(root)  # Left rotation
         
-        if balance < -1 and value < root.right.value:
-            root.right = self.right_rotate(root.right)
-            return self.left_rotate(root)  # Right-Left rotation
+        if balance_factor < -1 and value < root.right.value:
+            root.right = self._right_rotate(root.right)
+            return self._left_rotate(root)  # Right-Left rotation
 
         return root
 
-    def get_height(self, root: Node) -> int:
+    def _get_height(self, root: Node) -> int:
+        """Auxiliar method to get the height of a node"""
         if not root:
             return 0  # If the node is empty, its height is 0
         return root.height  # Otherwise return the node's height
 
-    def get_balance(self, root: Node) -> int:
+    def _get_balance_factor(self, root: Node) -> int:
+        """Auxiliar method to get the balnce factor of a node"""
         if not root:
             return 0  # If the node is empty, its balance factor is 0
-        return self.get_height(root.left) - self.get_height(root.right)  # The balance factor
+        return self._get_height(root.left) - self._get_height(root.right)  # The balance factor
 
-    def left_rotate(self, z: Node) -> Node:
-        y = z.right
-        T2 = y.left
+    def _left_rotate(self, node: Node) -> Node:
+        """Auxiliar method to rotate the tree to the left"""
+        right_node = node.right
+        left_of_right_node = right_node.left
 
         # Perform left rotation
-        y.left = z
-        z.right = T2
+        right_node.left = node
+        node.right = left_of_right_node
 
         # Update heights
-        z.height = 1 + max(self.get_height(z.left), self.get_height(z.right))
-        y.height = 1 + max(self.get_height(y.left), self.get_height(y.right))
+        node.height = 1 + max(self._get_height(node.left), self._get_height(node.right))
+        right_node.height = 1 + max(self._get_height(right_node.left), self._get_height(right_node.right))
 
-        return y
+        return right_node
 
-    def right_rotate(self, y: Node) -> Node:
-        x = y.left
-        T2 = x.right
+    def _right_rotate(self, node: Node) -> Node:
+        """Auxiliar method to rotate the tree to the right"""
+        left_node = node.left
+        right_of_left_node = left_node.right
 
         # Perform right rotation
-        x.right = y
-        y.left = T2
+        left_node.right = node
+        node.left = right_of_left_node
 
         # Update heights
-        y.height = 1 + max(self.get_height(y.left), self.get_height(y.right))
-        x.height = 1 + max(self.get_height(x.left), self.get_height(x.right))
+        node.height = 1 + max(self._get_height(node.left), self._get_height(node.right))
+        left_node.height = 1 + max(self._get_height(left_node.left), self._get_height(left_node.right))
 
-        return x
+        return left_node
     
     def delete(self, value: Any) -> None:
+        """Method to delete a node"""
         self.root = self._delete(self.root, value)
 
     def _delete(self, root: Node, value: Any) -> Node:
+        """Auxiliar method to delete a node"""
         # Step 1: Perform standard binary search tree deletion
         if not root:
             return root  # If the tree is empty, return null
@@ -105,33 +113,33 @@ class AVLTree:
         else:  # Node to be deleted is found
             if not root.left or not root.right:  # If the node has only one child or no child
                 if not root.left:
-                    temp = root.right
+                    temporal = root.right
                 else:
-                    temp = root.left
+                    temporal = root.left
 
                 # Case of one child or no child
-                if not temp:
-                    temp = root
+                if not temporal:
+                    temporal = root
                     root = None
                 else:
-                    root = temp  # Copy the content of the non-empty child
+                    root = temporal  # Copy the content of the non-empty child
 
-                temp = None
+                temporal = None
             else:  # Node with two children: Get the in-order successor
-                temp = self.getMinValueNode(root.right)
+                temporal = self._find_minimum(root.right)
 
                 # Copy the in-order successor's value to the current node
-                root.value = temp.value
+                root.value = temporal.value
 
                 # Delete the in-order successor
-                root.right = self._delete(root.right, temp.value)
+                root.right = self._delete(root.right, temporal.value)
 
         # If the tree had only one node
         if not root:
             return root
 
         # Step 2: Update the height of the current node
-        root.height = 1 + max(self.get_height(root.left), self.get_height(root.right))
+        root.height = 1 + max(self._get_height(root.left), self._get_height(root.right))
 
         # Step 3: Get the balance factor of this node
         balance = self.get_balance(root)
@@ -140,24 +148,25 @@ class AVLTree:
         if balance > 1:
             if self.get_balance(root.left) >= 0:
                 # Left-Left imbalance
-                return self.right_rotate(root)
+                return self._right_rotate(root)
             else:
                 # Left-Right imbalance
-                root.left = self.left_rotate(root.left)
-                return self.right_rotate(root)
+                root.left = self._left_rotate(root.left)
+                return self._right_rotate(root)
 
         if balance < -1:
             if self.get_balance(root.right) <= 0:
                 # Right-Right imbalance
-                return self.left_rotate(root)
+                return self._left_rotate(root)
             else:
                 # Right-Left imbalance
-                root.right = self.right_rotate(root.right)
-                return self.left_rotate(root)
+                root.right = self._right_rotate(root.right)
+                return self._left_rotate(root)
 
         return root
 
-    def getMinValueNode(self, node: Node) -> Node:
+    def _find_minimum(self, node: Node) -> Node:
+        """Auxiliary method to find the minimum"""
         current = node
         while current.left:
             current = current.left
