@@ -165,7 +165,8 @@ class SplayTree:
                     self.root.right = None
                     return 
                 maximum = self._find_max(node.left)
-                node.value = maximum.value
+                node.value = maximum.value 
+                node.left = maximum.left
                 self._delete_leaf(maximum) 
             
             self._splay(node)
