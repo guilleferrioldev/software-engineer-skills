@@ -1,3 +1,3 @@
 # Software Engineer Skills
 
-Algorithms and Data Structures implemented in Python, following best practices. 
+### Algorithms, Data Structures and Design Patterns implemented in Python. Concepts of programming. 
