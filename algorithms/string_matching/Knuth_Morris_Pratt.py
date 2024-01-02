@@ -17,35 +17,67 @@ q for the pattern and the counter for the text string, and we compare the next c
 in the pattern are matched in the text string, we return the position where the pattern is matched in the text and continue to search for another match.
 """
 
-def pfun(pattern):          # function to generate prefix function for the given pattern
-    n = len(pattern)        # length of the pattern
-    prefix_fun = [0]*(n)    # initialize all elements of the list to 0
-    k = 0
-    for q in range(2,n):
-        while k>0 and pattern[k+1] != pattern[q]:
-            k = prefix_fun[k]
-        if pattern[k+1] == pattern[q]:      # If the kth element of the pattern is equal to the qth element
-            k += 1                          # update k accordingly
-        prefix_fun[q] = k
-    return prefix_fun                       # return the prefix function
+from typing import List
+
+def KMP(text: str, pattern: str) -> int:
+    if not pattern: # pattern == "" 
+        return 0
+        
+    lps = compute_lps_array(pattern)  # Compute the lps array for the pattern
+
+    i = 0  # Pointer for the text
+    j = 0  # Pointer for the pattern
+    while i < len(text):
+        # If there is a match
+        if text[i] == pattern[j]:
+            # Advance both pointers
+            i, j = i + 1, j + 1
+        # If there is no match
+        else:
+            if j == 0:
+                # If j is 0, only advance the text pointer
+                i += 1
+            else:
+                # Use information from the lps table to move the pattern pointer backward
+                j = lps[j - 1]
+        # If j reaches the length of the pattern
+        if j == len(pattern):
+            # A complete match is found, so return the position where it starts
+            return i - len(pattern)
+    # If no match is found, return -1
+    return -1
+
+def compute_lps_array(pattern: str) -> List[int]:
+    # Longest-Prefix-Suffix (Table lps)
+    lps = [0] * len(pattern) 
+
+    # Initialize prevLPS to 0 and index to 1
+    prevLPS, index = 0, 1
+    while index < len(pattern):
+        # If the current character in the pattern matches the character at position prevLPS
+        if pattern[index] == pattern[prevLPS]:
+            # Assign the value prevLPS + 1 to the lps table at position index
+            lps[index] = prevLPS + 1
+            # Increment prevLPS
+            prevLPS += 1
+            # Increment index
+            index += 1
+        # If prevLPS is already 0
+        elif prevLPS == 0:
+            # Assign 0 to the lps table at position index
+            lps[index] = 0
+            # Increment index
+            index += 1
+        # If there is no match and prevLPS is not 0
+        else:
+            # Update prevLPS using the value from lps at position prevLPS - 1
+            prevLPS = lps[prevLPS - 1]
+    
+    return lps
 
 
-def KMP_Matcher(text,pattern):              # KMP matcher function
-    m = len(text)
-    n = len(pattern)
-    flag = False
-    text = '-' + text                       # append dummy character to make it 1-based indexing
-    pattern = '-' + pattern                 # append dummy character to the pattern also
-    prefix_fun = pfun(pattern)              # generate prefix function for the pattern
-    q = 0
-    for i in range(1,m+1):
-        while q>0 and pattern[q+1] != text[i]:      # while pattern and text are not equal, decrement the value of q if it is > 0
-            q = prefix_fun[q]
-        if pattern[q+1] == text[i]:                 # if pattern and text are equal, update value of q
-            q += 1
-        if q == n:                                      # if q is equal to the length of the pattern, it means that the pattern has been found.
-            print("Pattern occours with shift",i-n)     # print the index, where first match occours.
-            flag = True
-            q = prefix_fun[q]
-    if not flag:
-        print('\nNo match found')
+s1 = KMP("sadbutsad", "sad")
+s2 = KMP("leetcode", "leeto")
+s3 = KMP("hello", "ll")
+    
+print(s1, s2, s3)
