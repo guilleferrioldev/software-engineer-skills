@@ -19,12 +19,14 @@ in the pattern are matched in the text string, we return the position where the 
 
 from typing import List
 
-def KMP(text: str, pattern: str) -> int:
+
+def KMP(text, pattern):
     if not pattern: # pattern == "" 
         return 0
         
     lps = compute_lps_array(pattern)  # Compute the lps array for the pattern
-
+    
+    matches = []
     i = 0  # Pointer for the text
     j = 0  # Pointer for the pattern
     while i < len(text):
@@ -32,20 +34,22 @@ def KMP(text: str, pattern: str) -> int:
         if text[i] == pattern[j]:
             # Advance both pointers
             i, j = i + 1, j + 1
-        # If there is no match
-        else:
-            if j == 0:
-                # If j is 0, only advance the text pointer
-                i += 1
-            else:
-                # Use information from the lps table to move the pattern pointer backward
-                j = lps[j - 1]
         # If j reaches the length of the pattern
         if j == len(pattern):
-            # A complete match is found, so return the position where it starts
-            return i - len(pattern)
-    # If no match is found, return -1
-    return -1
+            # Add the starting index of the match to the matches list
+            matches.append(i - j)
+            # Update j using the LPS array
+            j = lps[j - 1]
+        # If there is a mismatch
+        elif i < len(text) and pattern[j] != text[i]:
+            if j != 0:
+                # Update j using the LPS array
+                j = lps[j - 1]
+            else:
+                # Move to the next character in the text
+                i += 1
+    return matches
+
 
 def compute_lps_array(pattern: str) -> List[int]:
     # Longest-Prefix-Suffix (Table lps)
