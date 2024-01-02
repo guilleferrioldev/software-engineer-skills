@@ -74,10 +74,3 @@ def compute_lps_array(pattern: str) -> List[int]:
             prevLPS = lps[prevLPS - 1]
     
     return lps
-
-
-s1 = KMP("sadbutsad", "sad")
-s2 = KMP("leetcode", "leeto")
-s3 = KMP("hello", "ll")
-    
-print(s1, s2, s3)
