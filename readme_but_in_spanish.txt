@@ -28,6 +28,9 @@
 • Entrada / Salida: Cómo el lenguaje maneja la entrada de datos desde el usuario o desde un archivo, y la salida de datos hacia la 
                     pantalla o un archivo.
 
+
+
+
 # Tipado
 • Tipado: Se refiere al concepto de asignar tipos de datos a variables, parámetros de funciones, expresiones, entre otros elementos 
           en un lenguaje de programación.
@@ -60,6 +63,9 @@
                 si perteneciera a una determinada interfaz o tipo, incluso si no hereda explícitamente de ese tipo. La idea es que
                 si un objeto se comporta de  cierta manera, entonces puede ser tratado como si fuera de un tipo particular, 
                 independientemente de su tipo real.
+
+
+
 
 # Compilación                     
 • Compilador: Un compilador es una herramienta que traduce el código fuente de un lenguaje de programación a código objeto
@@ -125,6 +131,10 @@
                                 gestionan las dependencias entre los diferentes componentes del software, como archivos fuente y bibliotecas, 
                                 y aseguran que los archivos se compilen en el orden correcto.
 
+
+
+
+
 ## 2- Conceptos generales: 
 • Ámbito: Se refiere al alcance o la visibilidad que tiene una variable dentro de un programa.
           Define en qué partes del código una variable puede ser utilizada y accedida. El ámbito de una 
@@ -158,12 +168,14 @@
 • Iterable vs Enumerable: Un iterable es simplemente algo que puede ser iterado, mientras que un enumerable es algo más específico
                          que no solo puede ser iterado, sino que también puede generar una secuencia de elementos de manera ordenada
 
-• Generador: Es una función especial que puede pausar su ejecución y luego reanudarla desde el mismo punto en el que se detuvo.
-             Esto permite la generación de una secuencia de valores de manera eficiente, ya que los valores se calculan bajo demanda 
-             en lugar de generarse todos a la vez. Los generadores se crean utilizando la palabra clave yield en lugar de return dentro
-             de una función. Cuando se llama a un generador, este devuelve un objeto iterador que puede utilizarse para recuperar los
-             valores generados por la función.
-             
+• Generador: Permite generar una secuencia de valores de manera perezosa, es decir, uno a la vez, en lugar de generar y almacenar todos
+             los valores de la secuencia de una vez. Esto significa que un generador no calcula todos los valores de la secuencia de 
+             antemano, lo que ahorra memoria y es útil cuando trabajamos con conjuntos de datos grandes. Los generadores se crean 
+             utilizando la palabra clave yield en lugar de return dentro de una función. Cuando se llama a un generador, este devuelve
+             un objeto iterador que puede utilizarse para recuperar los valores generados por la función.
+
+
+
 
 ## 3- Conceptos de OOP:
 • Generics: Permiten escribir código (clases, funciones, interfaces) que pueden funcionar con cualquier tipo de
@@ -215,6 +227,10 @@
 • Interaces vs Clases abstractas: La principal diferencia entre una clase abstracta y una interfaz es que una clase abstracta 
                                  puede contener implementaciones de métodos, mientras que una interfaz no puede contener 
                                  implementaciones y define un conjunto de métodos que una clase concreta debe implementar
+
+• Protocolos: Son un conjunto de reglas que definen una interfaz, pero no proporcionan una implementación. En lugar de ello,
+              los protocolos sirven como un contrato que las clases deben cumplir.          
+
 • Métodos estáticos: También conocidos como métodos de clase, son funciones que pertenecen a la clase en sí misma en lugar 
                      de pertenecer a las instancias individuales de la clase. Esto significa que puedes llamar a un método 
                      estático sin necesidad de crear una instancia de la clase.
@@ -256,7 +272,132 @@
             uno, normalmente utilizando un bucle while o for.
 
 
-## 5- DEvOps:
+
+
+## 4- Programación Funcional
+• Funciones puras: Son funciones que tienen dos propiedades importantes; "determinismo": dado el mismo conjunto de entradas, una 
+                  función pura siempre devolverá el mismo resultado, sin importar cuántas veces se llame y "ausencia de efectos 
+                  secundarios": una función pura no produce efectos secundarios fuera de su ámbito, lo que significa que no modifica
+                  ninguna variable fuera de la función, ni realiza acciones que afecten el estado del programa.
+
+• Funciones impuras: Son aquellas que, además de depender únicamente de sus argumentos, también realizan modificaciones en el estado externo.
+
+• Expresiones lambda: Son funciones anónimas que se pueden crear sobre la marcha. En esencia, son funciones sin nombre que pueden ser
+                      definidas y utilizadas en el lugar en el que se necesiten.
+
+• Funciones de primera clase: Son aquellas que pueden tratarse como cualquier otra variable en un lenguaje de programación. Esto
+                              significa que las funciones de primera clase pueden ser asignadas a variables, pasadas como argumentos
+                            a otras funciones, devueltas como valores de otras funciones y almacenadas en estructuras de datos.
+
+• Funciones de orden superior : Son aquellas que cumplen con al menos uno de los siguientes criterios: 1- Aceptan una o más funciones
+                                como argumentos. 2- Devuelven una función como resultado. (map, reduce, filter)
+
+• Recursión: Se refiere a la capacidad de una función para llamarse a sí misma directa o indirectamente. En otras palabras, una función
+             recursiva es aquella que, al ejecutarse, puede invocarse a sí misma para realizar una tarea específica. Se utiliza para 
+             resolver problemas complejos dividiéndolos en subproblemas más simples. Sin embargo, es importante tener en cuenta que la 
+             recursión debe tener un caso base (o casos base) definido(s) para evitar que la función se llame indefinidamente, lo que
+            provocaría un desbordamiento de pila (stack overflow).
+
+• Composición de funciones: Consiste en combinar dos o más funciones para crear una nueva función, donde el resultado de una función 
+                            se convierte en la entrada de otra.
+
+• Efectos secundarios controlados: Se refieren a la gestión controlada o limitada de cambios en el estado del sistema fuera de la
+                                 función pura. La gestión de los efectos secundarios controlados se logra utilizando técnicas como 
+                                 la inmutabilidad de datos, el uso de funciones puras y el aislamiento de efectos secundarios en 
+                                 ciertas partes del código, como en los llamados efectos colaterales. Esto permite escribir código
+                                 más predecible, fácil de razonar y probar
+
+• Monads : Se utiliza para manejar cálculos con efectos secundarios de manera segura y controlada. Es un tipo genérico que representa 
+          un valor junto con algún tipo de contexto o efecto asociado, como el manejo de excepciones, computaciones asincrónicas, o 
+          manejo de estados. Proporcionan una forma de encadenar operaciones con efectos secundarios de manera transparente y gestionar 
+          la complejidad de forma controlada. Además, permiten separar el manejo de efectos secundarios del flujo principal de la lógica
+          de programación, lo que mejora la legibilidad y mantenibilidad del código.
+
+• Transparencia referencial: Se refiere a que una función puede ser reemplazada por su valor sin cambiar el resultado del programa. 
+                            En otras palabras, si una función devuelve siempre el mismo resultado para los mismos argumentos, 
+                            entonces podemos reemplazar la llamada a esa función por su valor sin afectar el comportamiento del programa. 
+
+• Evaluación perezosa: Significa retrasar la evaluación de una expresión hasta que su valor sea realmente necesario, las expresiones no 
+                        se evalúan inmediatamente.Cuando se necesita el valor de una expresión perezosa, se evalúa en ese momento y su 
+                        resultado se almacena para futuros usos. Si el valor nunca es necesario, la expresión nunca se evalúa, lo que 
+                        puede resultar en una optimización del rendimiento. Permite trabajar con estructuras de datos potencialmente 
+                        infinitas, ya que solo se calculan los elementos que realmente se necesitan. Esto puede ser útil en situaciones
+                        en las que no se necesita procesar toda la información de una vez, lo que puede ahorrar tiempo y recursos
+                        computacionales.
+
+
+
+
+
+## 5- Programación asíncrona
+• Concurrencia: Se refiere a la capacidad de un programa para realizar múltiples tareas de manera aparentemente simultánea. En un 
+                entorno concurrente, las tareas pueden avanzar de forma solapada, lo que da la impresión de que se ejecutan al mismo
+                 tiempo. Esto es útil para mejorar la eficiencia y la capacidad de respuesta de un programa.
+
+• Paralelismo: Implica la ejecución real simultánea de múltiples tareas, ya sea en sistemas con múltiples núcleos de procesador o en
+               varios sistemas conectados en red. El paralelismo es especialmente útil para acelerar el procesamiento de tareas intensivas,
+               ya que permite distribuir la carga de trabajo entre varios recursos de manera efectiva.
+
+• Concurrencia vs Paralelismo: La concurrencia se refiere a la coordinación de múltiples tareas para un mejor rendimiento general,
+                              mientras que el paralelismo implica la ejecución real simultánea de dichas tareas.
+
+• Async/Await: Permite escribir código asíncrono de una manera más clara y legible, haciéndolo parecer síncrono. La palabra clave async se 
+              utiliza antes de una función para indicar que esa función devuelve una promesa. La palabra clave await se utiliza dentro de una 
+              función async para esperar a que una promesa se resuelva antes de continuar con la ejecución del código.
+
+• Funciones asincrónicas: Son funciones que pueden ejecutarse de forma asíncrona, lo que significa que pueden realizar operaciones 
+                          que podrían tomar tiempo sin bloquear el flujo de ejecución principal del programa.
+
+• Callbacks: Son funciones que se pasan como argumentos a otras funciones. Estas funciones son luego invocadas o "llamadas de vuelta" 
+             por la función que las recibe en algún punto durante su ejecución.
+
+• Promesas o Futuros: Es un objeto que representa el resultado eventual de una operación asincrónica. Está en uno de tres estados: pendiente, 
+                    cumplida o rechazada. Una vez que una promesa se ha cumplido o rechazado, ésta bloquea su estado y su valor resultante 
+                    no cambiará.
+
+• Promesas encadenadas: Son una forma de manejar múltiples operaciones asincrónicas de manera secuencial. En lugar de anidar múltiples 
+                        llamadas a funciones asincrónicas, las promesas encadenadas permiten encadenar varias operaciones asincrónicas 
+                        de forma que cada una se ejecute después de que la anterior haya completado su trabajo.
+
+• Event loop:  Es un mecanismo que permite que un programa pueda realizar múltiples tareas de forma concurrente, sin necesidad de esperar
+               a que una tarea se complete antes de comenzar la siguiente. Cuando una tarea asíncrona se inicia, el event loop agrega esa 
+               tarea a una cola de eventos. Luego, el event loop continuamente verifica si hay eventos pendientes en la cola y administra 
+               la ejecución de cada uno de ellos. Esto permite que el programa continúe funcionando de forma eficiente, manejando múltiples 
+               operaciones asíncronas sin bloquear el flujo principal del programa.
+
+• Timeouts: Se refieren a la duración máxima permitida para que una operación asincrónica se complete. Si la operación no se completa dentro 
+            de este límite de tiempo, se produce un "timeout", y la operación se considera fallida. Estos son importantes para prevenir bloqueos
+            indefinidos o retrasos excesivos en aplicaciones asincrónicas. Al utilizarlos apropiadamente, se puede controlar el comportamiento 
+            de la aplicación en situaciones donde la operación asincrónica no responde dentro de un tiempo razonable. Es común manejar los 
+            timeouts mediante la configuración de temporizadores y la captura de excepciones o eventos que indiquen que el tiempo límite se
+            ha agotado. Esto permite que la aplicación continúe su ejecución de manera controlada, en lugar de quedar atrapada esperando 
+            indefinidamente.
+• Streams: Son secuencias de datos continuos que se pueden procesar de manera individual o en lotes a medida que llegan, en lugar de tener
+        que esperar a que todos los datos estén disponibles antes de comenzar a procesarlos. Proporcionan una forma conveniente de manejar
+        entradas y salidas en tiempo real. Son especialmente útiles cuando se trabaja con grandes cantidades de datos o con fuentes de datos
+        en tiempo real.
+
+• Corrutinas: Son un tipo especial de rutina que pueden suspenderse y reanudarse en puntos específicos. Esto permite la ejecución cooperativa,
+            donde una corrutina puede ceder el control a otra y luego reanudar su ejecución en un punto determinado. 
+
+• Threading: Se refiere a la creación de subprocesos dentro de un único proceso. Estos subprocesos comparten la misma memoria y pueden acceder
+             a los mismos datos directamente. Es el proceso de ejecutar múltiples hilos dentro de un programa para realizar tareas de forma concurrente.
+             Los hilos son secuencias independientes de ejecución que pueden ejecutarse simultáneamente, lo que permite que un programa realice varias
+             tareas al mismo tiempo. Los hilos se utilizan para realizar operaciones en segundo plano, ejecutar tareas que pueden bloquear el programa 
+             principal, o para mejorar el rendimiento al realizar cálculos intensivos de forma paralela.
+
+• Multiprocessing: Implica la creación de múltiples procesos independientes. Cada proceso tiene su propio espacio de memoria y no comparte 
+                   memoria directamente con otros procesos.
+
+• Threading vs multiprocessing:  multiprocessing utiliza procesos en lugar de subprocesos como threading. A diferencia del threading, donde
+                                 múltiples hilos comparten el mismo espacio de memoria, el multiprocessing crea procesos separados que se 
+                                 ejecutan de forma independiente.
+
+
+
+
+
+## 6- DEvOps:
 • CI / CD es un enfoque que busca automatizar el proceso de construcción, prueba y despliegue de software, lo que conlleva
           a una liberación más rápida, frecuente y confiable de aplicaciones.
 
