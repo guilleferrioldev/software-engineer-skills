@@ -1,7 +1,9 @@
 # Time compexity = O(n*logn)
 # Space complexity = O(n)
 
-def merge_sort(unsorted_list):
+from typing import List
+
+def merge_sort(unsorted_list: List[int]) -> List[int]:
     if len(unsorted_list) == 1:
         return unsorted_list
     
@@ -15,7 +17,7 @@ def merge_sort(unsorted_list):
     return merge(half_a, half_b)
 
 
-def merge(first_sublist, second_sublist):
+def merge(first_sublist: List[int], second_sublist: List[int]) -> List[int]:
     i = j = 0
     merged_list = []
     
