@@ -53,6 +53,8 @@
 
 - **Compilation errors**: These are problems found during the process of translating source code into machine code. These errors occur when the compiler encounters instructions that violate the syntax of the programming language or when there are mistakes in the semantics of the code. This means that the compiler cannot convert the source code into an executable program due to errors in the code.
 
+- **Garbage collector**: It is a component of many programming languages ​​that is responsible for managing the memory used by a program. Its main function is to free memory that is no longer being used by the program, which helps prevent memory leaks and makes programs more efficient in using resources. When a program creates objects or variables in memory, the garbage collector is responsible for monitoring which of these elements are no longer accessible from the program, either because they are out of scope or because they are no longer needed. Once it determines that certain elements are not reachable, the garbage collector is responsible for freeing the memory occupied by these elements, allowing it to be reused by the program for other purposes.
+
 - **Just-In-Time(JIT) compilation**: It is an approach in which the source code is compiled at runtime, that is, just before it is executed. Instead of compiling all of a program's code before running it (as in the case of static compilation), JIT compiles parts of the code as they are needed during program execution. This can lead to more efficient program execution as the compiled code adapts to the conditions of the execution environment in real time.
 
 - **Compile time** refers to the process in which source code written by the programmer is converted into code executable by the computer. During compilation, the compiler checks the syntax and structure of the code for errors before producing the executable program. In short, it is the process of translating source code into a format that the machine can understand and execute.
@@ -202,3 +204,92 @@
 - **Continuous Integration (CI)** is a software development practice in which developers combine their work frequently, usually several times a day. Each integration is automatically verified with tests to detect errors as early as possible. This enables early problem detection and rapid remediation, which in turn helps reduce integration conflicts.
 
 - **Continuous Delivery (CD)** refers to the practice of automatically and reliably delivering software releases across various test and production environments. The goal is to ensure that the software is always in a deployable state, reducing the time between writing the code and deploying it to production.
+
+
+--- 
+#### 7- Data Structures and Algorithms
+Data structures are ways of organizing and storing data so that it can be used efficiently. These structures provide methods for storing, organizing, and accessing data so that it can be processed quickly.
+
+Algorithms are sets of step-by-step instructions designed to perform a specific task or solve a problem. These instructions define a precise process that can be followed to achieve a particular result.
+
+
+--- 
+#### 8- Design Patterns
+Design patterns are reusable solutions to common problems that arise when designing software. These patterns represent best practices, proven schemes, and general solutions for recurring situations in software development. Design patterns are not code or libraries that can be copied and pasted into an application, but rather guidelines that help developers address common design problems in a structured and efficient way.
+
+##### Creationals
+
+##### Structurals
+
+##### Behaviorals
+
+---
+#### 9- Principles
+##### SOLID
+
+##### KISS
+
+##### GRASP
+
+##### DRY
+
+##### YAGNI
+ 
+---
+#### 10- Software Architecture
+##### Software Quality Attributes
+1. **Utility**: Refers to the ability of the software to meet the needs of users and meet specified requirements.
+
+2. **Reliability**: Relates to the ability of the software to maintain correct operation under normal conditions and in unexpected situations.
+
+3. **Efficiency**: Refers to the efficient use of system resources, such as memory usage, processing capacity, and response time.
+
+4. **Maintainability**: Refers to the ease with which the software can be modified, corrected, improved or adapted to new situations.
+
+5. **Portability**: Refers to the ease with which the software can be transferred from one environment to another, maintaining its operation and performance.
+
+6. **Usability**: Refers to the ease of use of the software, including aspects such as user interface, accessibility and user experience.
+
+7. **Security**: Has to do with the software's ability to protect data and operations, as well as prevent unauthorized access.
+
+8. **Scalability**: Refers to the software's ability to adapt and handle growth in the volume of data, users or transactions without compromising its performance.
+
+9. **Interoperability**: Refers to the ability of software to interact with other systems efficiently and effectively, including data exchange and communication between different platforms.
+
+10. **Adaptability**: Indicates the ability of the software to adapt to different environments and situations, including changes in user requirements and the technological environment.
+
+11. **Fault tolerance**: Relates to the software's ability to maintain its performance even in the presence of errors or failures, avoiding catastrophic failures.
+
+12. **Testability**: Refers to the ease with which the software can be tested to ensure its correct operation, identify possible failures and verify its compliance with requirements.
+
+13. **Reusability**: Refers to the ability to reuse software components in different contexts, which can improve productivity and reduce development costs.
+
+14. **Documentation**: Refers to the existence of clear and complete documentation that describes the operation, design and use of the software, which facilitates its understanding, maintenance and support.
+
+15. **Modularity**: Refers to the ability of software to be composed of independent modules, making it easier to understand, maintain, and reuse components.
+
+16. **Extensibility**: Indicates the ease with which the software can be extended to include new functionalities or features, without affecting existing operation.
+
+17. **Adaptability to change**: This attribute refers to the ability of the software to adapt effectively to changes in requirements, operating environment and business conditions, maintaining its functionality and performance over time.
+
+18. **Conformity**: Refers to the ability of the software to comply with specific standards, regulations and guidelines that are applicable to its application domain. This may include safety regulations, accessibility standards, industry standards, among others.
+
+###### Cross-cutting Concerns
+They refer to aspects of a program that affect multiple parts of the application. These aspects often cut across different modules and components of the system.
+
+1. **Security**: The implementation of security measures, such as authentication, authorization, data encryption, session management, prevention of security attacks, etc.
+
+2. **Logging and monitoring**: The recording of events, the generation of logs, error management, monitoring of system performance and health, among other aspects related to traceability and management of information on the operation of the software.
+
+3. **Transactionality**: The handling of transactions, consistency and integrity of data in operations that involve multiple resources or entities.
+
+4. **Configuration management**: The management of configurations in the software, such as parameterization, environment management (development, staging, production), management of environment variables, among others.
+
+5. **Cache and storage**: Cache management, efficient data access, persistence management and performance optimization in data manipulation and access.
+
+6. **Error Management**: Properly handle and manage exceptions and errors in the application to ensure a smooth user experience and avoid unexpected interruptions.
+
+###### Architectural Patterns
+Architectural patterns are proven and recurring solutions to common problems in the design and implementation of software systems. These patterns provide a structured approach to organizing and building systems, allowing developers to leverage best practices and previous experiences.
+
+

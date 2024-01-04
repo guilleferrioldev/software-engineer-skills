@@ -100,6 +100,15 @@
                           programación o cuando hay faltas en la semántica del código. Esto significa que el compilador no puede 
                           convertir el código fuente en un programa ejecutable debido a errores en el código
 
+• Recolector de basura: Es un componente de muchos lenguajes de programación que se encarga de gestionar la memoria utilizada por un 
+                        programa. Su principal función es liberar la memoria que ya no está siendo utilizada por el programa, lo que
+                        ayuda a prevenir fugas de memoria y hace que los programas sean más eficientes en el uso de recursos. Cuando un
+                        programa crea objetos o variables en la memoria, el recolector de basura se encarga de monitorear cuáles de 
+                        estos elementos ya no son accesibles desde el programa, ya sea porque están fuera de alcance o porque ya no 
+                        son necesarios. Una vez que determina que ciertos elementos no son alcanzables, el recolector de basura se 
+                        encarga de liberar la memoria ocupada por estos elementos, permitiendo que sea reutilizada por el programa 
+                        para otros fines.
+
 • Compilación Just-In-Time (JIT):  Es un enfoque en el que el código fuente se compila en tiempo de ejecución, es decir, justo antes 
                                   de que se ejecute. En lugar de compilar todo el código de un programa antes de ejecutarlo (como en 
                                   el caso de la compilación estática), JIT compila partes del código a medida que son necesarias durante
@@ -411,3 +420,104 @@
                           estado desplegable, lo que permite reducir el tiempo entre la escritura del código y su despliegue en producción
 
 
+
+## 7- Estructuras de datos y algoritmos
+• 
+
+
+
+## 8- Patrones de Diseño
+# Creacionales
+
+# Estructurales 
+
+# De Comportamiento 
+
+## 9- Principios
+# SOLID
+
+# KISS
+
+# GRASP
+
+# DRY
+
+# YAGNI
+
+## 10- Arquitectura de Software
+# Atributos de calidad
+1. Utilidad: Se refiere a la capacidad del software para satisfacer las necesidades de los usuarios y cumplir con los requisitos 
+            especificados.
+
+2. Confiabilidad: Se relaciona con la capacidad del software para mantener el funcionamiento correcto en condiciones normales y en
+                  situaciones inesperadas.
+
+3. Eficiencia: Hace referencia al uso eficiente de los recursos del sistema, como el uso de memoria, la capacidad de procesamiento y
+              el tiempo de respuesta.
+
+4. Mantenibilidad: Se refiere a la facilidad con la que el software puede ser modificado, corregido, mejorado o adaptado a nuevas 
+situaciones.
+
+5. Portabilidad: Hace alusión a la facilidad con la que el software puede ser transferido de un entorno a otro, manteniendo su funcionamiento
+                 y desempeño.
+
+6. Usabilidad: Se refiere a la facilidad de uso del software, incluyendo aspectos como la interfaz de usuario, la accesibilidad y la 
+              experiencia del usuario.
+
+7. Seguridad: Tiene que ver con la capacidad del software para proteger los datos y operaciones, así como para prevenir accesos no autorizados.
+
+8. Escalabilidad: Hace referencia a la capacidad del software para adaptarse y manejar un crecimiento en el volumen de datos, usuarios o
+                  transacciones sin comprometer su desempeño.
+
+9. Interoperabilidad: Se refiere a la capacidad del software para interactuar con otros sistemas de manera eficiente y efectiva, incluyendo 
+                      el intercambio de datos y la comunicación entre diferentes plataformas.
+
+10. Adaptabilidad: Indica la capacidad del software para adaptarse a diferentes entornos y situaciones, incluyendo cambios en los requisitos
+                  del usuario y en el ambiente tecnológico.
+
+11. Tolerancia a fallos: Se relaciona con la capacidad del software para mantener su desempeño incluso en presencia de errores o fallas,
+                         evitando fallos catastróficos.
+
+12. Testeabilidad: Se refiere a la facilidad con la que el software puede ser probado para garantizar su correcto funcionamiento, identificar 
+                  posibles fallos y verificar su conformidad con los requisitos.
+
+13. Reusabilidad: Hace referencia a la capacidad de reutilizar componentes de software en diferentes contextos, lo que puede mejorar la
+                 productividad y reducir los costos de desarrollo.
+
+14. Documentación: Se refiere a la existencia de documentación clara y completa que describa el funcionamiento, diseño y uso del software,
+                  lo que facilita su comprensión, mantenimiento y apoyo.
+
+15. Modularidad: Se refiere a la capacidad del software para estar compuesto por módulos independientes, lo que facilita la comprensión,
+                 el mantenimiento y la reutilización de componentes.
+
+16. Extensibilidad: Indica la facilidad con la que el software puede ser extendido para incluir nuevas funcionalidades o características,
+                    sin afectar el funcionamiento existente.
+
+17. Adaptabilidad a los cambios: Este atributo se refiere a la capacidad del software para adaptarse de manera efectiva a los cambios en
+                                 los requisitos, el entorno operativo y las condiciones comerciales, manteniendo su funcionalidad y desempeño
+                                 a lo largo del tiempo.
+
+18. Conformidad: Se refiere a la capacidad del software para cumplir con estándares, regulaciones y directrices específicas que son
+                 aplicables a su dominio de aplicación. Esto puede incluir regulaciones de seguridad, estándares de accesibilidad, normas 
+                 de la industria, entre otros.
+
+# Preocupaciones transversales
+1. Seguridad: La implementación de medidas de seguridad, como la autenticación, la autorización, la encriptación de datos, la gestión de sesiones,
+              la prevención de ataques de seguridad, etc.
+
+2. Logging y monitoreo: El registro de eventos, la generación de logs, la gestión de errores, el monitoreo del rendimiento y la salud del sistema,
+                        entre otros aspectos relacionados con la trazabilidad y la gestión de información sobre el funcionamiento del software.
+
+3. Transaccionalidad: El manejo de transacciones, la consistencia y la integridad de los datos en operaciones que involucran múltiples recursos
+                      o entidades.
+
+4. Gestión de configuraciones: La gestión de configuraciones en el software, como la parametrización, la gestión de entornos (development,
+                               staging, production), la gestión de variables de entorno, entre otros.
+
+5. Cache y almacenamiento: La gestión de caché, el acceso eficiente a datos, la gestión de la persistencia y la optimización del rendimiento
+                           en la manipulación y acceso a datos.
+
+6. Gestión de errores: Manejar y gestionar adecuadamente las excepciones y errores en la aplicación para garantizar una experiencia de usuario
+                       fluida y evitar interrupciones inesperadas.
+
+# Patrones de Arquitectura
