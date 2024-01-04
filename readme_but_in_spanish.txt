@@ -428,6 +428,32 @@
 
 ## 8- Patrones de Diseño
 # Creacionales
+• Factory: Se utiliza para crear objetos de un tipo específico sin exponer la lógica de creación al cliente, sin especificar la clase exacta 
+           del objeto que se creará. En esencia, proporciona una interfaz para crear instancias de una clase, pero permite a las subclases 
+           alterar el tipo de objetos que se crearán. Se centra en la creación de una instancia de una clase específica, delegando la 
+           implementación a las subclases.
+    Se compone de lo siguente:
+    1 . **Producto:** Es la interfaz o clase base de los objetos que el patrón Factory puede crear.
+
+    2. **Productor:** Es la clase que contiene el método de fábrica. Este método es responsable de instanciar el objeto concreto basado en
+                      ciertos criterios.
+
+    3. **Producto concreto:** Son las clases reales que implementan la interfaz del Producto y son creadas por el Productor.
+
+
+• Abstract Factory: Proporciona una interfaz para crear familias de objetos relacionados o dependientes sin especificar sus clases concretas.
+                     Esto significa que el cliente no necesita preocuparse por cómo se crean los objetos, sino que simplemente interactúa con 
+                     la interfaz proporcionada por la fábrica abstracta.
+    Se compone de los siguientes elementos:
+    1. **Abstract Factory**: Define una interfaz para crear distintos tipos de objetos dentro de una familia de productos. 
+
+    2. **Fábricas concretas**: Implementan la interfaz de la Abstract Factory para crear objetos concretos de la familia de productos.
+
+    3. **Productos abstractos**: Son las interfaces para distintos tipos de productos que serán creados por la fábrica abstracta.
+
+    4. **Productos concretos**: Son las implementaciones concretas de los productos abstractos definidos. Cada familia de productos 
+    tiene sus propias implementaciones de productos concretos.
+
 
 # Estructurales 
 

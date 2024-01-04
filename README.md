@@ -3,8 +3,8 @@
 ### Algorithms, Data Structures and Design Patterns implemented in Python. Programming concepts.
 
 ---
-#### 1- Programming languages:
-#####  Basic concepts
+### 1- Programming languages:
+####  Basic concepts
 - **Syntax**: Syntax refers to the rules and grammatical structures of the language that define how things should be written instructions in the code.
 
 - **Semantics**: Semantics refers to the meaning of the instructions written in the code.
@@ -25,7 +25,7 @@
 
 - **Input/Output**: How the language handles input of data from the user or from a file, and output of data to the screen or a file.
 
-##### Typing
+#### Typing
 - **Typing**: Refers to the concept of assigning data types to variables, function parameters, expressions, among other elements in a programming language.
 
 - **Static typing**: Refers to the declaration and verification of data types at compile time. This means that in a statically typed programming language, data types must be specified before using a variable or function, and the compiler will check whether they are being used according to their declared types. If there are any type errors, the compiler will detect them before the program is executed.
@@ -40,7 +40,7 @@
 
 - **Duck typing**: "If it walks like a duck and quacks like a duck, then it must be a duck" sums up the concept well. In programming terms, this means that if an object has specific methods or behaviors, it can be treated as if it belongs to a certain interface or type, even if it does not explicitly inherit from that type. The idea is that if an object behaves in a certain way, then it can be treated as if it were of a particular type, regardless of its actual type.
 
-##### Compilation
+#### Compilation
 - **Compiler**: A compiler is a tool that translates the source code of a programming language into object code in the target language. The compiler performs lexical analysis, syntactic analysis, semantic analysis, code optimization, and code generation as part of this process. During lexical analysis, the compiler breaks the code into tokens such as identifiers, keywords, operators, etc. Grammatical analysis checks whether the program structure follows the syntactic rules of the language. Semantic analysis verifies that the language rules are followed and makes certain optimizations to improve the performance of the code. Finally, the compiler generates machine code based on the result of all these analyzes
 
 - **Compiled language**: It is a type of programming language whose source code is directly translated into executable code before execution.
@@ -70,7 +70,7 @@
 - **Construction systems**: These are tools that facilitate the automation of the software construction process. These systems manage dependencies between different software components, such as source files and libraries, and ensure that files are compiled in the correct order.
 
 ---
-#### 2- General concepts:
+### 2- General concepts:
 - **Scope**: Refers to the scope or visibility that a variable has within a program. Defines where in the code a variable can be used and accessed. The scope of a variable can be global, meaning that it can be accessed from anywhere in the program, or local, meaning that it can only be accessed within a specific portion of the code, such as a function or a block of code. 
 
 - **Mutability**: Refers to the ability of an object to change or modify its state after its creation.
@@ -91,7 +91,7 @@
 
 
 ---
-#### 3- OOP:
+### 3- OOP:
 - **Generics**: Allow you to write code (classes, functions, interfaces) that can work with any type of data. Instead of specifying a specific data type, you can use a generic type that will be replaced by an actual type when the code is used. This makes the code more flexible and reusable. Ex: getitem and setitem in python allow the same behavior although generics do not exist as such.
 
 - **Overloading**: Refers to the ability to have multiple methods or functions with the same name in the same class, but with different parameters. This means that you can have the same function with different behaviors depending on the parameters it receives.
@@ -140,7 +140,7 @@
 
 
 ---
-#### 4- Functional programming: 
+### 4- Functional programming: 
 - **Pure functions**: They are functions that have two important properties: ***"Determinism"***: given the same set of inputs, a pure function will always return the same result, no matter how many times it is called and ***"Absence of side effects"***: a pure function does not produce side effects outside of its scope, meaning that It does not modify any variable outside the function, nor does it perform actions that affect the state of the program.
 
 - **Impure functions**: These are those that, in addition to depending solely on their arguments, also make modifications to the external state.
@@ -165,7 +165,7 @@
 
 
 ---
-#### 5- Asynchronous and concurrent programming
+### 5- Asynchronous and concurrent programming
 - **Concurrency**: Refers to the ability of a program to perform multiple tasks seemingly simultaneously. In a concurrent environment, tasks can progress in an overlapping manner, giving the impression that they are running at the same time. This is useful for improving the efficiency and responsiveness of a program.
 
 - **Parallelism**: Involves the actual simultaneous execution of multiple tasks, either on systems with multiple processor cores or on multiple networked systems. Parallelism is especially useful for speeding up the processing of intensive tasks, as it allows the workload to be distributed among multiple resources effectively.
@@ -198,7 +198,7 @@
 
 
 ---
-#### 6- DevOps:
+### 6- DevOps:
 - **CI/CD** is an approach that seeks to automate the process of building, testing, and deploying software, leading to faster, more frequent, and more reliable releases of applications.
 
 - **Continuous Integration (CI)** is a software development practice in which developers combine their work frequently, usually several times a day. Each integration is automatically verified with tests to detect errors as early as possible. This enables early problem detection and rapid remediation, which in turn helps reduce integration conflicts.
@@ -207,25 +207,43 @@
 
 
 --- 
-#### 7- Data Structures and Algorithms
+### 7- Data Structures and Algorithms
 Data structures are ways of organizing and storing data so that it can be used efficiently. These structures provide methods for storing, organizing, and accessing data so that it can be processed quickly.
 
 Algorithms are sets of step-by-step instructions designed to perform a specific task or solve a problem. These instructions define a precise process that can be followed to achieve a particular result.
 
 
 --- 
-#### 8- Design Patterns
+### 8- Design Patterns
 Design patterns are reusable solutions to common problems that arise when designing software. These patterns represent best practices, proven schemes, and general solutions for recurring situations in software development. Design patterns are not code or libraries that can be copied and pasted into an application, but rather guidelines that help developers address common design problems in a structured and efficient way.
 
-##### Creationals
+#### Creationals
+- [Factory design pattern](./design_patterns/creationals/factory_pattern.py): Used to create objects of a specific type without exposing the creation logic to the client, without specifying the exact class of the object to be created. In essence, it provides an interface for creating instances of a class, but allows subclasses to alter the type of objects to be created. It focuses on creating an instance of a specific class, delegating implementation to subclasses. It is composed of the following:
 
-##### Structurals
+    1. **Product:** It is the interface or base class of the objects that the Factory pattern can create.
 
-##### Behaviorals
+    2. **Producer:** It is the class that contains the factory method. This method is responsible for instantiating the concrete object based on certain criteria.
+
+    3. **Concrete Product:** These are the actual classes that implement the Product interface and are created by the Producer.
+
+- [Abstract Factory design pattern](./design_patterns/creationals/abstract_factory_pattern.py): Provides an interface for creating families of related or dependent objects without specifying their concrete classes. This means that the client does not need to worry about how the objects are created, but simply interacts with the interface provided by the abstract factory. It is made up of the following elements:
+
+    1. **Abstract Factory**: Defines an interface to create different types of objects within a product family.
+
+    2. **Concrete factories**: They implement the Abstract Factory interface to create concrete objects of the product family.
+
+    3. **Abstract products**: These are the interfaces for different types of products that will be created by the abstract factory.
+
+    4. **Concrete products**: These are the concrete implementations of the defined abstract products. Each product family has its own specific product implementations.
+
+
+#### Structurals
+
+#### Behaviorals
 
 ---
-#### 9- Principles
-##### SOLID
+### 9- Principles
+#### SOLID
 **S - Single Responsibility Principle**: This principle states that a class must have a single reason to change. In other words, each class should have only one responsibility in the system.
 
 **O - Open/Closed Principle**: This principle postulates that software entities, such as classes, modules and functions, should be open for extension but closed for modification. This means that new functionality must be able to be added without changing existing code.
@@ -236,12 +254,12 @@ Design patterns are reusable solutions to common problems that arise when design
 
 **D - Dependency Inversion Principle**: This principle indicates that high-level modules should not depend on low-level modules, both should depend on abstractions. Furthermore, abstractions should not depend on details, but the other way around.
 
-##### KISS (Keep It Simple, Stupid) 
+#### KISS (Keep It Simple, Stupid) 
 - Avoid including unnecessary features in the software.
 - Preferring clarity and simplicity of code over unnecessary complexity.
 - Focusing on solving the problem directly and without adding elements that could unnecessarily complicate the system.
 
-##### GRASP (General Responsibility Assignment Software Patterns)
+#### GRASP (General Responsibility Assignment Software Patterns)
 These are a set of design patterns that help assign responsibilities to classes and objects in a software system. These principles are useful for designing software systems with a focus on clear and consistent assignment of responsibilities.
 
 - Information Expert Pattern: This pattern suggests assigning a responsibility to the class that has the information necessary to carry out that responsibility.
@@ -260,15 +278,15 @@ These are a set of design patterns that help assign responsibilities to classes 
 
 - Pure Fabrication: This pattern indicates that in some cases it may be useful to introduce a purely fabricated class that does not represent a domain entity, but that fulfills a specific function.
 
-##### DRY (Don't Repeat Yourself)
+#### DRY (Don't Repeat Yourself)
 It is a principle that emphasizes the importance of writing and maintaining code so that it is not repeated. This means that instead of duplicating logic or functionality in multiple places, the code should be modular and reusable.
 
-##### YAGNI (You Ain't Gonna Need It)
+#### YAGNI (You Ain't Gonna Need It)
 This principle is part of the agile software development methodology and is intended to guide developers in making decisions about what functionality to implement in a system. It focuses on the idea of ​​not adding unnecessary functionality or complexity to a system, especially when those functionalities are not currently needed. Instead of anticipating and developing features that "might" be useful in the future, developers follow this principle to focus on implementing only what is needed at the present moment.
 
 ---
-#### 10- Software Architecture
-##### Software Quality Attributes
+### 10- Software Architecture
+#### Software Quality Attributes
 1. **Utility**: Refers to the ability of the software to meet the needs of users and meet specified requirements.
 
 2. **Reliability**: Relates to the ability of the software to maintain correct operation under normal conditions and in unexpected situations.
@@ -305,7 +323,7 @@ This principle is part of the agile software development methodology and is inte
 
 18. **Conformity**: Refers to the ability of the software to comply with specific standards, regulations and guidelines that are applicable to its application domain. This may include safety regulations, accessibility standards, industry standards, among others.
 
-##### Cross-cutting Concerns
+#### Cross-cutting Concerns
 They refer to aspects of a program that affect multiple parts of the application. These aspects often cut across different modules and components of the system.
 
 1. **Security**: The implementation of security measures, such as authentication, authorization, data encryption, session management, prevention of security attacks, etc.
@@ -320,7 +338,7 @@ They refer to aspects of a program that affect multiple parts of the application
 
 6. **Error Management**: Properly handle and manage exceptions and errors in the application to ensure a smooth user experience and avoid unexpected interruptions.
 
-##### Architectural Patterns
+#### Architectural Patterns
 Architectural patterns are proven and recurring solutions to common problems in the design and implementation of software systems. These patterns provide a structured approach to organizing and building systems, allowing developers to leverage best practices and previous experiences.
 
 
