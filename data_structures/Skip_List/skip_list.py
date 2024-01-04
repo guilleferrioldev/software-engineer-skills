@@ -31,11 +31,13 @@ class SkipList:
         """Find element in the skip list"""
         if not update:
             update = self._update(element)
-        if len(update) > 0:
-            item = update[0].next[0]
-            if item and item.value == element:
-                return item
-        return
+        
+        if not len(update) > 0:
+            return 
+        
+        item = update[0].next[0]
+        if item and item.value == element:
+            return item
 
     def _update(self, element: Any) -> List[Node]:
         """It returns a list of nodes in each level that contains the greatest
@@ -61,23 +63,28 @@ class SkipList:
 
         update = self._update(element)            
         
-        if not self._find(element, update):
-            for i in range(len(node.next)):
-                node.next[i] = update[i].next[i]
-                update[i].next[i] = node
-            self._len += 1
+        if self._find(element, update):
+            return 
+        
+        for i in range(len(node.next)):
+            node.next[i] = update[i].next[i]
+            update[i].next[i] = node
+        self._len += 1
             
     def remove(self, element: Any) -> None:
         """Delete the node found using find() from all levels in which it appears."""
         update = self._update(element)
         
         node = self._find(element, update)
-        if node:
-            for i in reversed(range(len(node.next))):
-                update[i].next[i] = node.next[i]
-                if not self.sentinel.next[i]:
-                    self._maxHeight -= 1
-            self._len -= 1   
+        
+        if not node:
+            return 
+        
+        for i in reversed(range(len(node.next))):
+            update[i].next[i] = node.next[i]
+            if not self.sentinel.next[i]:
+                self._maxHeight -= 1
+        self._len -= 1   
     
     def __repr__(self) -> str:
         """Return a string representation of the skip list in ascending order"""
@@ -86,4 +93,4 @@ class SkipList:
         while current:
             values.append(current.value)
             current = current.next[0]
-        return f"{values}"                  
+        return f"{values}"        
