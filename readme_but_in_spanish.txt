@@ -435,14 +435,68 @@
 
 ## 9- Principios
 # SOLID
+S - Principio de responsabilidad única (Single Responsibility Principle): Este principio establece que una clase debe tener una única razón para
+    cambiar. En otras palabras, cada clase debe tener solo una responsabilidad en el sistema.
 
-# KISS
+O - Principio de abierto/cerrado (Open/Closed Principle): Este principio postula que las entidades de software, como clases, módulos y funciones,
+    deben estar abiertas para su extensión pero cerradas para su modificación. Esto significa que se deben poder agregar nuevas funcionalidades
+    sin cambiar el código existente.
+
+L - Principio de sustitución de Liskov (Liskov Substitution Principle): Este principio establece que los objetos de un programa deben ser 
+    reemplazables por instancias de sus subtipos sin alterar la corrección del programa. En resumen, una clase base debe poder ser reemplazada
+    por cualquiera de sus clases derivadas sin afectar el comportamiento esperado.
+
+I - Principio de segregación de interfaz (Interface Segregation Principle): Este principio sugiere que los clientes no deben verse obligados a depender
+     de interfaces que no utilicen. En lugar de tener interfaces grandes y generales, es mejor tener interfaces más pequeñas y específicas.
+
+D - Principio de inversión de dependencia (Dependency Inversion Principle): Este principio indica que los módulos de alto nivel no deben
+    depender de módulos de bajo nivel, ambos deben depender de abstracciones. Además, las abstracciones no deben depender de los detalles,
+    sino al revés.
+
+# KISS (Keep It Simple, Stupid) 
+•  Evitar la inclusión de características innecesarias en el software.
+
+• Prefiriendo la claridad y la simplicidad del código sobre la complejidad innecesaria.
+
+• Enfocándose en resolver el problema de manera directa y sin agregar elementos que puedan complicar innecesariamente el sistema.
 
 # GRASP
+Son un conjunto de patrones de diseño que ayudan a asignar responsabilidades a clases y objetos en un sistema de software. Estos principios
+son útiles para diseñar sistemas de software con un enfoque en la asignación clara y coherente de responsabilidades.
 
-# DRY
+1. Patrón de Experto en Información (Information Expert): Este patrón sugiere asignar una responsabilidad a la clase que posee la información
+     necesaria para llevar a cabo esa responsabilidad.
 
-# YAGNI
+2. Patrón de Controlador (Controller): Propone asignar la responsabilidad de recibir y manejar peticiones y eventos del sistema a una clase
+     controladora.
+
+3. Patrón de Creador (Creator): Se centra en asignar la responsabilidad de crear instancias de clases a una clase específica o a un conjunto
+     de clases.
+
+4. Patrón de Bajo Acoplamiento (Low Coupling): Sugiere reducir las dependencias entre distintas clases, promoviendo así un diseño más flexible
+     y menos sujeto a cambios.
+
+5. Patrón de Alto Coherencia (High Cohesion): Este patrón indica que las responsabilidades dentro de una clase deben estar estrechamente
+     relacionadas y unificadas en torno a una función o una tarea específica.
+
+6. Patrón de Polimorfismo (Polymorphism): Propone utilizar el polimorfismo para asignar comportamientos a clases sin necesidad de saber de 
+    antemano de qué subclase se trata.
+
+7. Patrón de Protección de la Variabilidad (Protected Variations): Sugiere encapsular las variabilidades del sistema para proteger otras 
+    partes del sistema de posibles cambios.
+
+8. Patrón de Indirección (Pure Fabrication): Este patrón señala que en algunos casos puede ser útil introducir una clase puramente fabricada
+     que no representa una entidad del dominio, pero que cumple una función específica.
+
+# DRY (Don't Repeat Yourself)
+ Es un principio de desarrollo de software que enfatiza la importancia de escribir y mantener código de manera que no se repita. Esto significa 
+ que, en lugar de duplicar lógica o funcionalidad en múltiples lugares, el código debería ser modular y reutilizable
+
+# YAGNI (You Ain't Gonna Need It)
+Este principio es parte de la metodología de desarrollo de software ágil y está destinado a guiar a los desarrolladores en la toma de decisiones
+sobre qué funcionalidades implementar en un sistema. Se centra en la idea de no agregar funcionalidades o complejidad innecesarias a un sistema,
+especialmente cuando esas funcionalidades no se necesitan actualmente. En lugar de anticipar y desarrollar características que "podrían" ser
+útiles en el futuro, los desarrolladores siguen este principio para concentrarse en implementar solo lo que se necesita en el momento presente.
 
 ## 10- Arquitectura de Software
 # Atributos de calidad

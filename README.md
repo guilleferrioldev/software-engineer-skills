@@ -226,15 +226,46 @@ Design patterns are reusable solutions to common problems that arise when design
 ---
 #### 9- Principles
 ##### SOLID
+**S - Single Responsibility Principle**: This principle states that a class must have a single reason to change. In other words, each class should have only one responsibility in the system.
 
-##### KISS
+**O - Open/Closed Principle**: This principle postulates that software entities, such as classes, modules and functions, should be open for extension but closed for modification. This means that new functionality must be able to be added without changing existing code.
 
-##### GRASP
+**L - Liskov Substitution Principle**: This principle states that the objects of a program must be replaceable by instances of their subtypes without altering the correctness of the program. In short, a base class should be able to be overridden by any of its derived classes without affecting the expected behavior.
 
-##### DRY
+**I - Interface Segregation Principle**: This principle suggests that clients should not be forced to depend on interfaces that they do not use. Instead of having large, general interfaces, it is better to have smaller, specific interfaces.
 
-##### YAGNI
- 
+**D - Dependency Inversion Principle**: This principle indicates that high-level modules should not depend on low-level modules, both should depend on abstractions. Furthermore, abstractions should not depend on details, but the other way around.
+
+##### KISS (Keep It Simple, Stupid) 
+- Avoid including unnecessary features in the software.
+- Preferring clarity and simplicity of code over unnecessary complexity.
+- Focusing on solving the problem directly and without adding elements that could unnecessarily complicate the system.
+
+##### GRASP (General Responsibility Assignment Software Patterns)
+These are a set of design patterns that help assign responsibilities to classes and objects in a software system. These principles are useful for designing software systems with a focus on clear and consistent assignment of responsibilities.
+
+- Information Expert Pattern: This pattern suggests assigning a responsibility to the class that has the information necessary to carry out that responsibility.
+
+- Controller Pattern: It proposes assigning the responsibility of receiving and handling system requests and events to a controller class.
+
+- Creator Pattern: It focuses on assigning the responsibility of creating class instances to a specific class or a set of classes.
+
+- Low Coupling Pattern: It suggests reducing dependencies between different classes, thus promoting a more flexible design and less subject to change.
+
+- High Cohesion Pattern: This pattern indicates that responsibilities within a class must be closely related and unified around a specific function or task.
+
+- Polymorphism Pattern: It proposes using polymorphism to assign behaviors to classes without needing to know in advance which subclass it is.
+
+- Protected Variations Pattern: It suggests encapsulating the variabilities of the system to protect other parts of the system from possible changes.
+
+- Pure Fabrication: This pattern indicates that in some cases it may be useful to introduce a purely fabricated class that does not represent a domain entity, but that fulfills a specific function.
+
+##### DRY (Don't Repeat Yourself)
+It is a principle that emphasizes the importance of writing and maintaining code so that it is not repeated. This means that instead of duplicating logic or functionality in multiple places, the code should be modular and reusable.
+
+##### YAGNI (You Ain't Gonna Need It)
+This principle is part of the agile software development methodology and is intended to guide developers in making decisions about what functionality to implement in a system. It focuses on the idea of ​​not adding unnecessary functionality or complexity to a system, especially when those functionalities are not currently needed. Instead of anticipating and developing features that "might" be useful in the future, developers follow this principle to focus on implementing only what is needed at the present moment.
+
 ---
 #### 10- Software Architecture
 ##### Software Quality Attributes
@@ -274,7 +305,7 @@ Design patterns are reusable solutions to common problems that arise when design
 
 18. **Conformity**: Refers to the ability of the software to comply with specific standards, regulations and guidelines that are applicable to its application domain. This may include safety regulations, accessibility standards, industry standards, among others.
 
-###### Cross-cutting Concerns
+##### Cross-cutting Concerns
 They refer to aspects of a program that affect multiple parts of the application. These aspects often cut across different modules and components of the system.
 
 1. **Security**: The implementation of security measures, such as authentication, authorization, data encryption, session management, prevention of security attacks, etc.
@@ -289,7 +320,7 @@ They refer to aspects of a program that affect multiple parts of the application
 
 6. **Error Management**: Properly handle and manage exceptions and errors in the application to ensure a smooth user experience and avoid unexpected interruptions.
 
-###### Architectural Patterns
+##### Architectural Patterns
 Architectural patterns are proven and recurring solutions to common problems in the design and implementation of software systems. These patterns provide a structured approach to organizing and building systems, allowing developers to leverage best practices and previous experiences.
 
 
