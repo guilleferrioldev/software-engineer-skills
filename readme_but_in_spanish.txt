@@ -420,19 +420,20 @@
                           estado desplegable, lo que permite reducir el tiempo entre la escritura del código y su despliegue en producción
 
 
+## 8- Métodos de resolucion de problemas de programacion
 
-## 7- Estructuras de datos y algoritmos
+
+## 8- Estructuras de datos y algoritmos
 • 
 
 
 
-## 8- Patrones de Diseño
+## 9- Patrones de Diseño
 # Creacionales
 • Factory: Se utiliza para crear objetos de un tipo específico sin exponer la lógica de creación al cliente, sin especificar la clase exacta 
            del objeto que se creará. En esencia, proporciona una interfaz para crear instancias de una clase, pero permite a las subclases 
            alterar el tipo de objetos que se crearán. Se centra en la creación de una instancia de una clase específica, delegando la 
            implementación a las subclases.
-    Se compone de lo siguente:
     1 . **Producto:** Es la interfaz o clase base de los objetos que el patrón Factory puede crear.
 
     2. **Productor:** Es la clase que contiene el método de fábrica. Este método es responsable de instanciar el objeto concreto basado en
@@ -444,7 +445,6 @@
 • Abstract Factory: Proporciona una interfaz para crear familias de objetos relacionados o dependientes sin especificar sus clases concretas.
                      Esto significa que el cliente no necesita preocuparse por cómo se crean los objetos, sino que simplemente interactúa con 
                      la interfaz proporcionada por la fábrica abstracta.
-    Se compone de los siguientes elementos:
     1. **Abstract Factory**: Define una interfaz para crear distintos tipos de objetos dentro de una familia de productos. 
 
     2. **Fábricas concretas**: Implementan la interfaz de la Abstract Factory para crear objetos concretos de la familia de productos.
@@ -455,11 +455,266 @@
     tiene sus propias implementaciones de productos concretos.
 
 
+• Builder: Se utiliza para construir un objeto complejo paso a paso. Permite la creación de diferentes variantes de un objeto sin necesidad
+             de exponer su representación interna. En lugar de utilizar un constructor con un gran número de parámetros, el patrón Builder 
+            utiliza un objeto builder para construir el objeto paso a paso y después devolver el producto final
+    1. Product: Es el objeto complejo que se está construyendo. En el contexto del patrón Builder, este es el producto final que se obtiene
+                 después de aplicar todas las construcciones y configuraciones.
+
+    2. Builder: Es una interfaz o una clase abstracta que define los pasos necesarios para construir el producto. Esta interfaz o clase 
+                proporciona métodos para construir las diferentes partes del producto.
+
+    3. ConcreteBuilder: Esta es una implementación concreta de la interfaz del Builder. La clase ConcreteBuilder implementa los métodos 
+                        definidos en la interfaz Builder para construir y ensamblar las diferentes partes del producto.
+
+    4. Director: Opcionalmente, un Director puede ser utilizado para supervisar el proceso de construcción, proporcionando un flujo específico 
+                 para construir el producto.
+
+    5. Client: Es el código que utiliza el patrón Builder para construir el producto. El cliente interactúa con el Builder y, opcionalmente,
+                el Director para construir el objeto complejo.
+
+
+• Singleton: Garantiza que una clase tenga una sola instancia y proporciona un punto de acceso global a esa instancia.
+    Se compone de los siguientes elementos:
+    1. Clase Singleton: Es la clase para la cual se garantiza que solo haya una instancia. Esta clase generalmente proporciona un método 
+                        estático para obtener la instancia única, y el constructor de la clase generalmente es privado para evitar la creación
+                        de instancias adicionales.
+
+    2. Instancia única: Es la única instancia de la clase Singleton que el patrón garantiza. Esta instancia es compartida por todos los clientes
+                         que la soliciten.
+
+    3. Punto de acceso global: El método estático proporcionado por la clase Singleton que permite a los clientes obtener la instancia única de
+                             la clase.
+
+
+• Prototipo: Se utiliza para crear nuevos objetos duplicando un objeto existente, conocido como prototipo. Este patrón se centra en crear nuevos
+             objetos mediante la clonación de objetos existentes, lo que evita la creación de objetos mediante un constructor
+
+    1. Prototipo: Es la interfaz que declara el método de clonación. Puede ser una interfaz o una clase abstracta que define el método 
+                    clonar o duplicar.
+
+    2. Clase Concreta Prototipo: Implementa la interfaz Prototipo y proporciona la implementación para el método de clonación.
+
+    3. Cliente: Utiliza el prototipo para crear nuevos objetos invocando el método de clonación. Este cliente puede ser parte de la aplicación
+                 que necesita crear nuevos objetos basados en prototipos existentes.
+
+
 # Estructurales 
+• Adapter: Permite que interfaces incompatibles trabajen juntas.
+    1. Target (Objetivo): Define la interfaz específica del dominio que usa el cliente. En otras palabras, es la interfaz a la que el cliente 
+                            espera que el adaptador se adapte.
+
+    2. Client (Cliente): Es el que utiliza la interfaz del Target para interactuar con el objeto adaptador.
+
+    3. Adaptee (Adaptado): Es la interfaz existente que necesita ser adaptada para funcionar con el cliente. En general, el cliente no puede 
+                            usar directamente esta interfaz debido a incompatibilidades.
+
+    4. Adapter (Adaptador): Implementa la interfaz del "Target" y mantiene una referencia al objeto del "Adaptado". Actúa como un intermediario
+                             que traduce las llamadas del cliente a las operaciones correspondientes en el adaptado.
+
+• Bridge: Separa una abstracción de su implementación para que puedan variar independientemente. 
+    1. Abstraction (Abstracción): Define la interfaz de alto nivel que el cliente utiliza para interactuar. Esta interfaz contiene referencias a
+                                 objetos de tipo Implementor y es independiente de la implementación concreta.
+
+    2. RefinedAbstraction (Abstracción refinada): Extiende la interfaz de Abstraction definiendo comportamientos más refinados.
+
+    3. Implementor (Implementador): Define la interfaz para la implementación de las clases de implementación concretas. Esta interfaz no tiene
+                                     que coincidir con la interfaz de Abstraction. En lugar de eso, ambas interfaces pueden diferir y, por lo tanto,
+                                     separan completamente la abstracción de la implementación.
+
+    4. ConcreteImplementor (Implementador concreto): Implementa la interfaz de Implementor y proporciona una implementación concreta de la interfaz.
+
+
+• Composite: Combina objetos en estructuras de árbol para representar jerarquías parte-todo. Permite a los clientes tratar de manera uniforme tanto 
+            a los objetos individuales como a las composiciones de objetos.
+    1. Componente: Define la interfaz para los objetos simples y compuestos en la estructura. Puede ser una interfaz o una clase abstracta que 
+                    declara operaciones comunes a todos los elementos en la estructura.
+
+    2. Hoja (Leaf): Representa los nodos finales en la estructura. Implementa la interfaz del componente y no tiene hijos.
+
+    3. Compuesto (Composite): Representa los nodos internos en la estructura. Contiene hojas y/o otros composites. Implementa la interfaz del componen
+
+• Decorator: Permite agregar comportamiento adicional a objetos individualmente, de manera dinámica y transparente para el cliente.
+    1. Componente: Define la interfaz para los objetos que pueden recibir decoraciones.
+
+    2. Objeto Concreto (Concrete Component): Implementa la interfaz del componente y define el objeto base al que se pueden agregar decoraciones.
+
+    3. Decorador (Decorator): Es una clase abstracta que también implementa la interfaz del componente. Contiene una referencia a un objeto del 
+                            componente. Esta clase tiene la capacidad de envolver o anidar una operación con un comportamiento adicional antes 
+                            o después de la llamada al componente envuelto.
+
+    4. Decorador Concreto (Concrete Decorator): Extiende el decorador y agrega comportamiento adicional a los objetos.
+• Facade: Proporciona una interfaz unificada para un conjunto de interfaces de un subsistema. Esto facilita el uso del subsistema al proporcionar
+          una interfaz de más alto nivel.
+    1. Fachada (Facade): Proporciona una interfaz unificada para un conjunto de interfaces en un subsistema. Esta fachada conoce qué clases del
+                         subsistema son responsables de realizar una petición y delega la solicitud al objeto correspondiente del subsistema.
+
+    2. Subsistema (Subsystem): Consiste en una o más clases que implementan funcionalidad específica. La fachada no implementa directamente la 
+                               funcionalidad, sino que delega las peticiones a los objetos del subsistema.
+
+• Flyweight: Se usa cuando necesitamos minimizar el uso de memoria o de procesamiento al manejar un gran número de objetos que comparten 
+            características idénticas.
+    1. Flyweight: Es una interfaz o clase abstracta que define las operaciones que pueden ser compartidas. Los objetos flyweight representan las 
+            características intrínsecas del objeto (compartidas).
+
+    2. Concrete Flyweight: Implementa la interfaz flyweight y almacena la parte del estado intrínseco. Este objeto debe ser compartido y reutilizado.
+
+    3. Flyweight Factory: Es una fábrica que gestiona los objetos flyweight. Se asegura de que los flyweights se compartan de manera eficiente,
+                         es decir, que cuando un cliente solicita un flyweight, el factory lo proporciona si ya existe, o crea uno nuevo si no.
+
+    4. Cliente: Utiliza los objetos flyweight, pero también puede contener el estado extrínseco (es decir, la parte que no se comparte y es 
+                específica de la instancia del cliente)
+
+• Proxy: Introduce un intermediario o sustituto para controlar el acceso a un objeto, permitiendo agregar funcionalidad adicional, como la 
+        gestión de la creación tardía, control de acceso, registro, entre otros:
+    1. Sujeto (Subject): Define la interfaz común tanto para el objeto real como para el proxy, de manera que el proxy pueda utilizarse en cualquier
+                     lugar donde se espere el objeto real.
+
+    2. Proxy: Mantiene una referencia al objeto real para poder realizar tareas adicionales cuando se accede al objeto real. Implementa la misma
+                 interfaz que el sujeto, lo que permite que sea utilizado en lugar del objeto real.
+
+        - Proxy remoto (Remote Proxy): Gestiona la comunicación con un objeto remoto.
+   
+        - Proxy virtual (Virtual Proxy): Controla la creación tardía de un objeto pesado hasta que sea absolutamente necesario.
+   
+        - Proxy de protección (Protection Proxy): Controla el acceso al objeto real según los permisos o restricciones de acceso.
+
+    3. Objeto real (Real Subject): Es el objeto original al que el proxy provee acceso controlado.
+
 
 # De Comportamiento 
+• Chain of Responsibility: Permite a múltiples objetos manejar una solicitud sin conocer explícitamente los detalles de la solicitud o los 
+                            otros manejadores.
+    1. Manejador (Handler): Define una interfaz para manejar las solicitudes y mantener una referencia al siguiente manejador en la cadena. 
+                            Este puede ser una clase abstracta o una interfaz.
 
-## 9- Principios
+    2. Manejador Concreto (Concrete Handler): Implementa la interfaz del manejador y contiene la lógica para manejar la solicitud o pasa la 
+                                                solicitud al siguiente manejador en la cadena.
+
+    3. Solicitud (Request): Representa la solicitud a ser manejada por los manejadores.
+
+
+• Command : Encapsula una solicitud como un objeto, lo que le permite parametrizar clientes con operaciones, encolar solicitudes, o realizar
+             operaciones de registro.
+    1. Comando (Command): Define una interfaz común para todos los comandos con un método ejecutar que ejecuta la acción asociada con el comando
+                         y opcionalmente provee métodos para deshacer la acción.
+
+    2. Comando Concreto (Concrete Command): Implementa la interfaz del comando y almacena la información necesaria para ejecutar la acción.
+                                             Contiene una referencia a uno o más receptores (objetos que realizan la acción), y realiza la llamada
+                                             a métodos del receptor cuando se ejecuta.
+
+    3. Invocador (Invoker): Solicita que se ejecute un comando, desconociendo qué comando concreto se ejecutará. Mantiene una referencia al comando
+                             y, opcionalmente, mantiene una lista de comandos ejecutados.
+
+    4. Receptor (Receiver): Conoce cómo realizar la acción asociada con un comando. Realiza la acción cuando es llamado por el comando concreto.
+
+    5. Cliente (Client): Crea un comando y asocia un receptor con ese comando antes de pasarlo al invocador para ser ejecutado.
+
+
+• Iterator: Proporciona una forma de acceder secuencialmente a los elementos de una colección sin exponer su representación subyacente.
+    1. Iterador (Iterator): Define una interfaz para acceder y recorrer los elementos de una colección.
+
+    2. Iterador Concreto (Concrete Iterator): Implementa la interfaz del iterador y realiza el seguimiento del elemento actual en la colección
+                                             durante el recorrido.
+
+    3. Agregado (Aggregate): Define una interfaz para crear un iterador que permite recorrer los elementos de la colección.
+
+    4. Agregado Concreto (Concrete Aggregate): Implementa la interfaz del agregado y devuelve una instancia del iterador concreto apropiado.
+
+    5. Elemento (Element): Representa los elementos individuales dentro de la colección que se está recorriendo.
+
+
+• Mediator: Es un patrón de comportamiento que se utiliza para reducir las conexiones directas entre los componentes de un sistema, promoviendo
+             en su lugar un fuerte acoplamiento y permitiendo que los componentes se comuniquen a través de un objeto mediador central. Esto ayuda 
+             a aumentar la reutilización del código y a simplificar la comunicación entre los componentes.
+
+    1. Mediator (Mediador): Define una interfaz que los componentes utilizan para comunicarse entre sí. El mediador conoce y coordina las interacciones
+                         entre los componentes.
+
+    2. Concrete Mediator (Mediador Concreto): Implementa la interfaz del mediador y coordina las interacciones entre los componentes. Este mediador
+                            concreto conoce los componentes específicos que debe coordinar.
+
+    3. Colleague (Colega): Representa los componentes individuales del sistema que necesitan comunicarse entre sí, pero lo hacen a través del mediador
+                         en lugar de comunicarse directamente entre ellos.
+
+• Memento: Se utiliza para capturar el estado de un objeto en un determinado momento, de modo que sea posible restaurar el objeto a ese estado más
+             tarde sin violar su encapsulación. Esto se logra a través de la captura y almacenamiento de instantáneas del estado interno del objeto,
+              permitiendo así la reversión a un estado anterior si es necesario.
+    1. Originator (Creador): Es el objeto cuyo estado se quiere preservar. El Originator crea un Memento que contiene una instantánea de su estado 
+                             interno.
+
+    2. Memento: Es un objeto que almacena el estado de un Originator en un momento dado. Suele contener todos los datos necesarios para restaurar
+                 el estado del Originator a ese punto en el tiempo.
+
+    3. Caretaker (Cuidador): Es responsable de mantener los Mementos, pero no los modifica ni accede a su contenido. El Caretaker actúa como una 
+                            especie de caja de ahorros para los Mementos. También puede coordinar la interacción entre el Originator y el Memento,
+                             aunque el Originator es el que realmente realiza la operación de guardado y restauración del estado.
+
+• Observer: Se utiliza para definir una relación de uno a muchos entre objetos de manera que cuando un objeto cambia de estado, todos sus 
+            dependientes son notificados y actualizados automáticamente. Esto ayuda a mantener la consistencia entre los objetos y a reducir el
+             acoplamiento en el sistema.
+    1. Sujeto (Subject): Define una interfaz para agregar, eliminar y notificar observadores. El Sujeto también mantiene una lista de observadores
+                         a los que notifica sobre cualquier cambio.
+
+    2. Observador (Observer): Define una interfaz para recibir notificaciones del Sujeto cuando su estado cambia. Los observadores se registran con 
+                            el Sujeto para recibir notificaciones.
+
+    3. Observador Concreto (Concrete Observer): Implementa la interfaz de Observador para recibir notificaciones y realizar acciones específicas 
+                                                cuando el estado del Sujeto cambia.
+
+    4. Sujeto Concreto (Concrete Subject): Implementa la interfaz del Sujeto y mantiene el estado actual. Además, notifica a los observadores cuando
+                                         su estado cambia.
+
+• State : Permite que un objeto cambie su comportamiento cuando su estado interno cambia. Esto se logra mediante la definición de distintas clases
+         que representan los distintos estados posibles de un objeto, y delegando el comportamiento a un objeto que representa el estado actual.
+    1. Contexto (Context): Define la interfaz que se utiliza para interactuar con el estado. Mantiene una referencia a una instancia de estado 
+                            concreto que define el estado actual.
+
+    2. Estado (State): Define una interfaz común para todos los estados concretos y encapsula el comportamiento asociado a un estado particular.
+
+    3. Estados Concretos (Concrete States): Implementan la interfaz del estado y representan los distintos estados en los que puede encontrarse
+                                            el contexto. Cada estado concreto proporciona la implementación de comportamiento asociada con ese
+                                            estado particular.
+
+• Strategy: Permite definir una familia de algoritmos, encapsular cada uno de ellos y hacerlos intercambiables. Esto permite que el algoritmo 
+            pueda variar independientemente de los clientes que lo utilizan.
+    1. Contexto (Context): Es el objeto que mantiene una referencia a un objeto Estrategia y lo utiliza para realizar una operación en particular.
+                             El contexto delega la ejecución del algoritmo a la estrategia.
+
+    2. Estrategia (Strategy): Define una interfaz común para todos los algoritmos soportados. Las estrategias encapsulan los algoritmos específicos
+                             y hacen que sean intercambiables dentro del contexto.
+
+    3. Estrategias Concretas (Concrete Strategies): Implementan la interfaz de Estrategia y proporcionan la implementación de algoritmos específicos.
+
+• Template Method: Define la estructura de un algoritmo en una clase base, pero permite que las subclases redefinan ciertos pasos del algoritmo sin
+                 cambiar su estructura general. Esto promueve la reutilización del código y permite compartir el comportamiento común entre las clases.
+
+    1. Clase Abstracta (Abstract Class): Define un método plantilla que establece la estructura del algoritmo, incluyendo pasos comunes y pasos que
+                                         pueden ser redefinidos por subclases.
+
+    2. Método Plantilla (Template Method): Es un método definido en la clase abstracta que establece la secuencia de pasos del algoritmo. Este método
+                                            hace uso de otros métodos, algunos de los cuales pueden ser abstractos o con opción de redefinición por
+                                            las subclases.
+
+    3. Métodos Concretos (Concrete Methods): Son métodos implementados en la clase abstracta o sus subclases que son utilizados por el método 
+                                             plantilla para construir el algoritmo.
+
+• Visitor: Se utiliza para separar algoritmos de la estructura de un objeto sobre el que operan. Permite definir un nuevo operador o método sin 
+            cambiar las clases de los elementos en los que opera ese método.
+    1. Visitante (Visitor): Define una interfaz que declara un método de visita para cada tipo de elemento.
+
+    2. Elemento (Element): Define una interfaz que permite al visitante visitar el elemento. Normalmente, este elemento proporciona un método que 
+                            acepta un visitante como parámetro.
+
+    3. Elemento Concreto (Concrete Element): Implementa la interfaz de Element y define una implementación específica de aceptación de visitantes.
+
+    4. Estructura de Objeto (Object Structure): Es una colección o estructura de elementos que pueden ser visitados por el visitante. Proporciona
+                                                 una interfaz para acceder a sus elementos.
+
+
+
+
+## 10- Principios
 # SOLID
 S - Principio de responsabilidad única (Single Responsibility Principle): Este principio establece que una clase debe tener una única razón para
     cambiar. En otras palabras, cada clase debe tener solo una responsabilidad en el sistema.
@@ -524,7 +779,10 @@ sobre qué funcionalidades implementar en un sistema. Se centra en la idea de no
 especialmente cuando esas funcionalidades no se necesitan actualmente. En lugar de anticipar y desarrollar características que "podrían" ser
 útiles en el futuro, los desarrolladores siguen este principio para concentrarse en implementar solo lo que se necesita en el momento presente.
 
-## 10- Arquitectura de Software
+
+
+
+## 11- Arquitectura de Software
 # Atributos de calidad
 1. Utilidad: Se refiere a la capacidad del software para satisfacer las necesidades de los usuarios y cumplir con los requisitos 
             especificados.
