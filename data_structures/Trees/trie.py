@@ -53,7 +53,18 @@ class Trie:
         return True
     
     def _all_words(self) -> List[str]:
-        pass
+        """Return a list of all words present in the Trie"""
+        words = []
+
+        def dfs(node: Node, prefix: str) -> None:
+            if node.is_leaf:
+                words.append(prefix)
+            
+            for char, child_node in node.children.items():
+                dfs(child_node, prefix + char)
+
+        dfs(self.root, "")
+        return words
         
     def __repr__(self) -> str:
         return f"{self._all_words()}"
