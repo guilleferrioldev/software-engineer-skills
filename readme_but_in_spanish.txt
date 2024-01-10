@@ -183,7 +183,25 @@
              utilizando la palabra clave yield en lugar de return dentro de una función. Cuando se llama a un generador, este devuelve
              un objeto iterador que puede utilizarse para recuperar los valores generados por la función.
 
+• Guard clauses or Early Returns: Son estructuras de control utilizadas en programación para mejorar la legibilidad y mantenibilidad
+                                  del código. Consista en utilizar declaraciones de retorno temprano para manejar casos especiales o 
+                                  condiciones excepcionales al principio de una función o método. El propósito principal de las cláusulas
+                                  de guardia es reducir la complejidad del código al evitar la anidación excesiva de condicionales
+                                 (if-else) y al manejar casos especiales de manera explícita al principio de la función. Esto hace que el
+                                 flujo del programa sea más claro y fácil de entender.
 
+• Record: Se refiere a una estructura de datos inmutable, lo que significa que una vez que se crea, no se puede cambiar. Sin embargo,
+          esto puede variar según el lenguaje de programación que estés utilizando. Se utiliza para almacenar un conjunto fijo de datos
+          que representa una entidad específica. Se pueden crear usando clases inmutables o utilizando tipos de datos especiales. Se usan
+        comúnmente para modelar entidades inmutables, es decir, para representar datos que no deben cambiar una vez que se crean.
+
+• Partial: Es una palabra clave que se utiliza para dividir la definición de una clase, estructura, interfaz o método entre dos o más
+           archivos. Esto significa que puedes tener múltiples archivos que contienen partes del código de una sola entidad y que todas 
+           esas partes se combinan automáticamente en una sola entidad cuando se compila el programa.
+
+• Final: Es una palabra clave que see usa para declarar constantes, hacer que los objetos sean inmutables o para indicar que una variable,
+        método o clase no puede ser sobrescrita. Si se aplica a un método, significa que dicho método no puede ser sobreescrito por las 
+        subclases. Y si se  aplica a una clase, indica que la clase no puede tener subclases.
 
 
 ## 3- Conceptos de OOP:
@@ -281,8 +299,6 @@
             uno, normalmente utilizando un bucle while o for.
 
 
-
-
 ## 4- Programación Funcional
 • Funciones puras: Son funciones que tienen dos propiedades importantes; "determinismo": dado el mismo conjunto de entradas, una 
                   función pura siempre devolverá el mismo resultado, sin importar cuántas veces se llame y "ausencia de efectos 
@@ -300,6 +316,11 @@
 
 • Funciones de orden superior : Son aquellas que cumplen con al menos uno de los siguientes criterios: 1- Aceptan una o más funciones
                                 como argumentos. 2- Devuelven una función como resultado. (map, reduce, filter)
+
+• Closures : Se refieren a funciones que capturan variables de su entorno circundante, es decir, variables definidas fuera de la función 
+            en la que se encuentran. Estas variables capturadas pueden ser utilizadas dentro de la función, incluso después de que la 
+            función haya salido del alcance en el que fueron definidas, lo que hace que el cierre "encierra" o "captura" el estado de 
+            las variables.
 
 • Recursión: Se refiere a la capacidad de una función para llamarse a sí misma directa o indirectamente. En otras palabras, una función
              recursiva es aquella que, al ejecutarse, puede invocarse a sí misma para realizar una tarea específica. Se utiliza para 
@@ -420,7 +441,22 @@
                           estado desplegable, lo que permite reducir el tiempo entre la escritura del código y su despliegue en producción
 
 
-## 8- Métodos de resolucion de problemas de programacion
+## 7- Métodos de resolucion de problemas de programacion
+• Divide y vencerás : Este enfoque consiste en dividir un problema en subproblemas más pequeños que puedan resolverse de manera independiente.
+                      Posteriormente, se combinan las soluciones de los subproblemas para obtener la solución del problema original.
+
+• Dos punteros: Es una técnica comúnmente utilizada para resolver problemas de algoritmos donde se necesita buscar un par de elementos en un
+                conjunto que cumplan con ciertas condiciones. En esencia, consiste en utilizar dos punteros o índices para explorar el arreglo 
+                desde diferentes posiciones y moverlos de manera estratégica para encontrar la solución al problema.
+
+• Programación dinámica : Se utiliza para resolver problemas que pueden dividirse en subproblemas solapados, es decir, donde se repiten cálculos.
+                         En lugar de resolver cada subproblema repetidamente, la programación dinámica almacena las soluciones de los subproblemas
+                         en una tabla para su reutilización.
+
+• Algoritmos voraces : En este enfoque, se toman decisiones secuenciales según una regla específica en cada paso. Estas decisiones suelen ser las
+                         óptimas localmente, con la esperanza de que el resultado global sea óptimo.
+
+• Backtracking: Es útil para resolver problemas en los que se necesita probar todas las posibles combinaciones para encontrar una solución.
 
 
 ## 8- Estructuras de datos y algoritmos
@@ -714,7 +750,7 @@
 
 
 
-## 10- Principios
+## 10- Principios de diseño
 # SOLID
 S - Principio de responsabilidad única (Single Responsibility Principle): Este principio establece que una clase debe tener una única razón para
     cambiar. En otras palabras, cada clase debe tener solo una responsabilidad en el sistema.
@@ -783,6 +819,41 @@ especialmente cuando esas funcionalidades no se necesitan actualmente. En lugar 
 
 
 ## 11- Arquitectura de Software
+# Conceptos generales
+• Modularidad: Se refiere a la práctica de dividir un sistema en componentes más pequeños y autónomos, lo que permite que el sistema sea más 
+              fácil de entender, mantener y escalar
+
+• Cohesión: Se refiere a la medida en que los elementos de un módulo o componente de software están interrelacionados y trabajan juntos para 
+            lograr un objetivo común. Un alto grado de cohesión significa que los componentes de un módulo están fuertemente relacionados entre
+            sí en términos de funcionalidad y propósito. Por el contrario, la baja cohesión se refiere a un escaso vínculo entre las partes de
+            un módulo, lo que puede indicar que podría ser ventajoso dividir el módulo en componentes más cohesivos.
+
+• Acoplamiento: Se refiere al grado de interdependencia entre los diversos módulos, clases o componentes de un sistema. Un acoplamiento bajo 
+                indica que las distintas partes del sistema están menos interconectadas, lo que facilita la modificación, extensión y reutilización
+                del código. Por otro lado, un acoplamiento alto puede hacer que el sistema sea más difícil de mantener y actualizar, ya que los 
+                cambios en una parte del sistema pueden tener efectos inesperados en otras partes. 
+                
+• Abstracción: Se refiere a la capacidad de enfocarse en el nivel de detalle adecuado para un determinado problema, ignorando los detalles
+              innecesarios. La abstracción permite simplificar la complejidad del sistema, lo que facilita su comprensión y mantenimiento.
+
+• Inestabilidad: Se refiere a la facilidad con la que un componente o módulo puede cambiar con el tiempo, ya sea debido a cambios en sus propias
+                 características o a cambios en otros componentes con los que interactúa. Un alto nivel de inestabilidad puede llevar a una mayor
+                 complejidad y dificultad para mantener y evolucionar el sistema de software. 
+
+• Distancia de la secuencia principal: Este concepto se refiere a la medida en que un componente o módulo está conectado directa o indirectamente
+                                       con la lógica central de la aplicación. 
+
+• Connascence: Es una métrica de calidad del software que permite razonar sobre la complejidad causada por las relaciones de dependencia en el
+               diseño orientado a objetos, de forma muy similar a como lo hizo el acoplamiento para el diseño estructurado. En ingeniería de 
+               software, dos componentes son compatibles si un cambio en uno requeriría modificar el otro para mantener la corrección general 
+               del sistema. 
+
+    - Static Connascence: Es un tipo de acoplamiento o dependencia entre dos módulos o componentes de un sistema. Se refiere a la relación entre 
+                          dos elementos en un programa que está determinada en tiempo de compilación
+                          
+    - Dynamic Connascence: Se refiere a la situación en la que dos o más partes del código deben cambiar simultáneamente debido a un cambio en 
+                           una dependencia compartida.
+
 # Atributos de calidad
 1. Utilidad: Se refiere a la capacidad del software para satisfacer las necesidades de los usuarios y cumplir con los requisitos 
             especificados.
