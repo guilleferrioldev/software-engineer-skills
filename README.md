@@ -97,6 +97,10 @@
 
 - **Final**: It is a keyword used to declare constants, make objects immutable, or to indicate that a variable, method, or class cannot be overridden. If applied to a method, it means that method cannot be overridden by subclasses. And if applied to a class, it indicates that the class cannot have subclasses.
 
+- **Pointers**: These are variables that store memory addresses instead of direct values. In other words, a pointer "points" to the location in memory where some data is stored. They allow you to directly manipulate the system memory. This can be useful for working with complex data structures, accessing specific memory locations, and for optimizing the performance of certain operations.
+
+- **References**: They are aliases or nicknames of an object in memory. It is used to access an object without making a copy of that object. Instead of holding the value of the object directly, a reference simply "points" to the original object in memory.
+
 
 ---
 ### 3- Object Oriented Programming

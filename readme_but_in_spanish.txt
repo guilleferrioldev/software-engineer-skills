@@ -203,6 +203,13 @@
         método o clase no puede ser sobrescrita. Si se aplica a un método, significa que dicho método no puede ser sobreescrito por las 
         subclases. Y si se  aplica a una clase, indica que la clase no puede tener subclases.
 
+• Punteros: Son variables que almacenan direcciones de memoria en lugar de valores directos. En otras palabras, un puntero "apunta" a la 
+            ubicación en la memoria donde se almacena algún dato. Permiten manipular directamente la memoria del sistema. Esto puede ser 
+            útil para trabajar con estructuras de datos complejas, acceder a ubicaciones específicas de memoria, y para optimizar el 
+            rendimiento de ciertas operaciones
+
+• Referencias: Son alias o apodos de un objeto en memoria. Se utiliza para acceder a un objeto sin realizar una copia de ese objeto. En 
+              lugar de contener el valor del objeto directamente, una referencia simplemente "apunta" al objeto original en la memoria.
 
 ## 3- Conceptos de OOP:
 • Generics: Permiten escribir código (clases, funciones, interfaces) que pueden funcionar con cualquier tipo de
