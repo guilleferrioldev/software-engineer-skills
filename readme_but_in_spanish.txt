@@ -338,6 +338,22 @@
 • Composición de funciones: Consiste en combinar dos o más funciones para crear una nueva función, donde el resultado de una función 
                             se convierte en la entrada de otra.
 
+• Monoid: Es una estructura algebraica que consta de un conjunto y una operación binaria, que satisface dos propiedades clave: la cerradura
+         y la existencia de un elemento neutro.
+
+        - Cerradura: Para cualquier par de elementos del conjunto, la operación binaria produce otro elemento del mismo conjunto. En otras 
+                    palabras, la operación combinada de dos elementos dentro del conjunto siempre produce un elemento válido dentro del mismo
+                     conjunto.
+        
+        - Elemento neutro: Existe un elemento especial en el conjunto, llamado elemento neutro, que cuando se combina con cualquier otro 
+                          elemento utilizando la operación binaria, produce el mismo otro elemento.
+
+• Functor: Es una estructura que permite aplicar una función a los valores encapsulados dentro de esa estructura, manteniendo la estructura
+          original. Es una abstracción que nos permite realizar operaciones en un contexto específico. 
+
+• Endofuntor: Es una clase de tipo que mapea objetos en la misma categoría. En términos más simples, un endofuntor es una estructura que
+             actúa sobre objetos dentro de la misma categoría, transformándolos de alguna manera y devolviendo objetos del mismo tipo.
+
 • Efectos secundarios controlados: Se refieren a la gestión controlada o limitada de cambios en el estado del sistema fuera de la
                                  función pura. La gestión de los efectos secundarios controlados se logra utilizando técnicas como 
                                  la inmutabilidad de datos, el uso de funciones puras y el aislamiento de efectos secundarios en 
@@ -349,6 +365,9 @@
           manejo de estados. Proporcionan una forma de encadenar operaciones con efectos secundarios de manera transparente y gestionar 
           la complejidad de forma controlada. Además, permiten separar el manejo de efectos secundarios del flujo principal de la lógica
           de programación, lo que mejora la legibilidad y mantenibilidad del código.
+
+• Maybe Monad: Se utiliza para encadenar operaciones en valores que pueden ser nulos, de manera que si en algún punto se encuentra un 
+              valor nulo, las operaciones posteriores se omiten y el resultado final también es nulo.
 
 • Transparencia referencial: Se refiere a que una función puede ser reemplazada por su valor sin cambiar el resultado del programa. 
                             En otras palabras, si una función devuelve siempre el mismo resultado para los mismos argumentos, 

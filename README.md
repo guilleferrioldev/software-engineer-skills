@@ -169,9 +169,20 @@
 
 - **Function composition**: It consists of combining two or more functions to create a new function, where the result of one function becomes the input of another.
 
+- **Monoid**: It is an algebraic structure consisting of a set and a binary operation, which satisfies two key properties: lockability and the existence of a neutral element.
+    - **Lock**: For any pair of elements in the set, the binary operation produces another element of the same set. In other words, the combined operation of two elements within the set always produces a valid element within the same set.
+
+    - **Neutral element**: There is a special element in the set, called neutral element, which when combined with any other element using binary operation, produces the same other element.
+
+- **Functor**: It is a structure that allows applying a function to the values ​​encapsulated within that structure, maintaining the original structure. It is an abstraction that allows us to perform operations in a specific context.
+
+- **Endofunctor**: It is a type class that maps objects into the same category. In simpler terms, an endofunctor is a structure that acts on objects within the same category, transforming them in some way and returning objects of the same type.
+
 - **Controlled side effects**: These refer to the controlled or limited management of changes in the state of the system outside of the pure function. The management of controlled side effects is achieved using techniques such as data immutability, the use of pure functions and the isolation of side effects in certain parts of the code, such as so-called side effects. This allows you to write more predictable code that is easier to reason with and test.
 
-- **Monads**: These are used to manage stones with side effects in a safe and controlled manner. It is a generic type that represents a value along with some type of associated context or effect, such as exception handling, asynchronous computations, or state handling. They provide a way to chain operations with side effects transparently and manage complexity in a controlled way. Additionally, they allow side-effect handling to be separated from the main flow of programming logic, which improves the readability and maintainability of the code.
+- **Monads**: These are monoids in the domain of endofunctors. These are used to manage stones with side effects in a safe and controlled manner. It is a generic type that represents a value along with some type of associated context or effect, such as exception handling, asynchronous computations, or state handling. They provide a way to chain operations with side effects transparently and manage complexity in a controlled way. Additionally, they allow side-effect handling to be separated from the main flow of programming logic, which improves the readability and maintainability of the code.
+
+- **Maybe Monad**: Used to chain operations on values ​​that may be null, so that if a null value is encountered at any point, subsequent operations are skipped and the final result is also null.
 
 - **Referential transparency**: It means that a function can be replaced by its value without changing the result of the program. In other words, if a function always returns the same result for the same arguments, then we can replace the call to that function with its value without affecting the behavior of the program.
 
