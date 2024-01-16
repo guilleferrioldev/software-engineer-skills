@@ -25,6 +25,8 @@
 
 - **Input/Output**: How the language handles input of data from the user or from a file, and output of data to the screen or a file.
 
+- **Reference counting**: Refers to the number of times a given entity (such as an object, a variable, or a piece of information) is referenced in a given context. In the context of programming, reference counting can be applied to variables, objects, or other elements within the code.
+
 #### Typing
 - **Typing**: Refers to the concept of assigning data types to variables, function parameters, expressions, among other elements in a programming language.
 
@@ -60,6 +62,8 @@
 - **Compile time** refers to the process in which source code written by the programmer is converted into code executable by the computer. During compilation, the compiler checks the syntax and structure of the code for errors before producing the executable program. In short, it is the process of translating source code into a format that the machine can understand and execute.
 
 - **Runtime** refers to the period in which the compiled program is running and performing its functions on the computer. During this time, the program interacts with the operating system, hardware, and other programs in real time. This is where the actual behavior of the program is observed and logical or other errors may arise.
+
+- **Reflection**: Refers to the ability of a program to examine and modify its own structure and behavior during runtime. This means that a program can inspect and manipulate its own classes, methods, attributes, and other components at run time. This opens the door to a series of advanced functionalities, such as the dynamic creation of class instances, the dynamic invocation of methods, the inspection of the structure of objects, the manipulation of attributes, among others.
 
 - **Cross-compilation**: It is the process of compiling a program so that it runs on a different platform than the one on which the compilation is being performed. This means that the code is compiled on a different architecture or operating system than the one that will be used to run the resulting program.
 

@@ -28,7 +28,9 @@
 • Entrada / Salida: Cómo el lenguaje maneja la entrada de datos desde el usuario o desde un archivo, y la salida de datos hacia la 
                     pantalla o un archivo.
 
-
+• Conteo de referencias: Se refiere al número de veces que una determinada entidad (como un objeto, una variable o una pieza de 
+                        información) es referenciada en un determinado contexto. En el contexto de la programación, el conteo de 
+                        referencias puede aplicarse a variables, objetos u otros elementos dentro del código.
 
 
 # Tipado
@@ -124,6 +126,12 @@
                             computadora. Durante este tiempo, el programa interactúa con el sistema operativo, el hardware y otros
                             programas en tiempo real. Aquí es donde se observa el comportamiento real del programa y pueden surgir 
                             errores lógicos o de otro tipo.
+
+• Reflexión: Se refiere a la capacidad de un programa para examinar y modificar su propia estructura y comportamiento durante el tiempo de
+             ejecución. Esto significa que un programa puede inspeccionar y manipular sus propias clases, métodos, atributos y demás 
+             componentes en tiempo de ejecución. Esta abre la puerta a una serie de funcionalidades avanzadas, como la creación dinámica de
+             instancias de clases, la invocación dinámica de métodos, la inspección de la estructura de los objetos, la manipulación de
+             atributos, entre otros.
 
 • Cross-compilación: Es el proceso de compilar un programa para que se ejecute en una plataforma diferente a aquella en la que se está 
                     realizando la compilación. Esto significa que el código se compila en una arquitectura o sistema operativo distinto 
