@@ -219,6 +219,17 @@
 • Referencias: Son alias o apodos de un objeto en memoria. Se utiliza para acceder a un objeto sin realizar una copia de ese objeto. En 
               lugar de contener el valor del objeto directamente, una referencia simplemente "apunta" al objeto original en la memoria.
 
+• Narrowing: Es un término que se utiliza en el contexto de la conversión de tipos de datos. Se refiere a la conversión de un tipo de 
+             datos más grande a uno más pequeño, lo cual puede resultar en la pérdida de información o precisión. En muchos lenguajes de
+             programación, cuando convertimos un tipo de datos más grande (como un número entero largo) a uno más pequeño (como un número
+             entero corto), existe la posibilidad de que parte de la información se "estreche" durante la conversión, lo que puede resultar
+             en una pérdida de precisión.
+
+• Type Guard: Es una característica en lenguajes de programación que te permite refinar el tipo de una variable dentro de un bloque de 
+             código si se cumplen ciertas condiciones. Esto es útil cuando estás trabajando con tipos uniones (uniones de tipos) o tipos 
+             genéricos. Puedes usar un type guard para comprobar si una variable es de un cierto tipo y luego hacer uso de esa información
+             de tipo de manera segura. 
+
 ## 3- Conceptos de OOP:
 • Generics: Permiten escribir código (clases, funciones, interfaces) que pueden funcionar con cualquier tipo de
             datos. En lugar de especificar un tipo de dato concreto, puedes usar un tipo genérico que se 

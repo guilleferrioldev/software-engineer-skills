@@ -105,6 +105,10 @@
 
 - **References**: They are aliases or nicknames of an object in memory. It is used to access an object without making a copy of that object. Instead of holding the value of the object directly, a reference simply "points" to the original object in memory.
 
+- **Narrowing**: It is a term used in the context of data type conversion. It refers to the conversion from a larger data type to a smaller one, which may result in loss of information or precision. In many programming languages, when we convert a larger data type (such as a long integer) to a smaller one (such as a short integer), there is a possibility that some of the information will be "narrowed" during the conversion, which can result in a loss of precision.
+
+- **Type Guard**: is a feature in programming languages ​​that allows you to refine the type of a variable within a block of code if certain conditions are met. This is useful when you are working with union types (type unions) or generic types. You can use a type guard to check if a variable is of a certain type and then make use of that type information safely.
+
 
 ---
 ### 3- Object Oriented Programming
