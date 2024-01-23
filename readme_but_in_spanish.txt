@@ -1,4 +1,4 @@
-## 1- Lenguajes de programación:
+## 1- Lenguajes de programación
 # Básico
 • Sintaxis: La sintaxis se refiere a las reglas y estructuras gramaticales del lenguaje que definen cómo se deben escribir las 
             instrucciones en el código.
@@ -152,7 +152,7 @@
 
 
 
-## 2- Conceptos generales: 
+## 2- Conceptos generales
 • Ámbito: Se refiere al alcance o la visibilidad que tiene una variable dentro de un programa.
           Define en qué partes del código una variable puede ser utilizada y accedida. El ámbito de una 
           variable puede ser global, lo que significa que puede ser accedida desde cualquier parte del 
